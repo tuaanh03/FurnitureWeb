@@ -3,7 +3,7 @@
     padding: 40px;
     background-color: white;
     margin: auto;
-    margin-top: 50px;
+    /* margin-top: 50px; */
     width: 400px;
     font-size: 18px;
     border-radius: 10px;
@@ -24,6 +24,7 @@
     font-weight: 600;
 }
 
+
 .login-button
 {
     font-family: Montserrat-Bold;
@@ -35,17 +36,55 @@
     height: 50px;
     border-radius: 25px;
     background: #57b846;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 25px;
-    -webkit-transition: all .4s;
-    -o-transition: all .4s;
-    -moz-transition: all .4s;
     transition: all .4s;
     margin-top: 25px;
 }
+
+.login-button:hover
+{
+    background: #333;
+}
+
+.p-t-12
+{
+    padding-top: 12px;
+}
+
+.p-t-136
+{
+    padding-top: 50px;
+}
+
+.txt1
+{
+    font-family: Poppins-Regular;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #999;
+}
+
+.txt2
+{
+    font-family: Poppins-Regular;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #666;
+    text-decoration: none;
+}
+
+.txt2:hover
+{
+    color: #57b846;
+}
+
+.ti-arrow-right
+{
+    margin-left: 5px;
+    display: inline-block;
+    font-size: 15px;
+}
+

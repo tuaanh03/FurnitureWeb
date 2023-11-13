@@ -16,16 +16,12 @@
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/icon/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/modal-login.css">
 
     <!-- Load map styles -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
-<!--
-    
-TemplateMo 559 Zay Shop
 
-https://templatemo.com/tm-559-zay-shop
-
--->
 </head>
 
 <body>
@@ -55,8 +51,10 @@ https://templatemo.com/tm-559-zay-shop
     <nav class="navbar navbar-expand-lg navbar-light shadow">
         <div class="container d-flex justify-content-between align-items-center">
 
-            <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
-                VAT
+            <a class="navbar-brand text-success logo h1 align-self-center" href="index.html" style="text-align: center;">
+                <img src="assets/img/vaticon.png" alt="" style="width: 30%">
+                <h1 style="font-size: 20px;">Vũ Anh Toàn </h1>
+                <!-- VAT -->               
             </a>
 
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -96,7 +94,7 @@ https://templatemo.com/tm-559-zay-shop
                         <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
                     </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
+                    <a class="nav-icon position-relative text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_login">
                         <i class="fa fa-fw fa-user text-dark mr-3"></i>
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
                     </a>
@@ -123,6 +121,65 @@ https://templatemo.com/tm-559-zay-shop
             </form>
         </div>
     </div>
+
+    <div class="modal fade bg-white" id="templatemo_login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="w-100 pt-1 mb-5 text-right">               
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" method="get" class="modal-content modal-body border-0 p-0">
+                <div class="input-group mb-2">
+                    <!-- <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                    <button type="submit" class="input-group-text bg-success text-light">
+                        <i class="fa fa-fw fa-search text-white"></i>
+                    </button> -->
+                    
+                </div>
+                <div class="modal-container">
+                    <header  class="modal-header">
+                        <i class="ti-user"></i>
+                        Đăng nhập 
+                    </header>
+                    
+                    <div class="modal-body">
+                        <label for="" class="modal-label">
+                           <i class="ti-email">
+                                Tài khoản
+                           </i>
+                        </label>
+                        <input type="text" class="form-control" placeholder="Tài khoản...">
+                        
+                
+                        <label for="" class="modal-label">
+                            <i class="ti-key">
+                               Mật khẩu 
+                            </i>
+                        </label>
+                        <input type="text" class="form-control" placeholder="Mật khẩu...">
+
+                        <div class="container-button">
+                            <button class="login-button">Đăng nhập</button>
+                        </div>
+
+                        <div class="text-center p-t-12">
+                            <span class="txt1">Quên</span>
+                            <a class="txt2" href="#">Tài khoản / Mật khẩu</a>
+                        </div>
+
+                        <div class="text-center p-t-136">
+                            <a class="txt2" href="">
+                                Tạo tài khoản
+                                <i class="ti-arrow-right"></i>
+                            </a>
+                        </div>
+
+                    </div> 
+                </div>
+            </form>
+            
+        </div>
+    </div>
+
 
 
     <!-- Start Content Page -->
