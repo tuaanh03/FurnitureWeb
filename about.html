@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="assets/css/templatemo.css">
     <link rel="stylesheet" href="assets/css/custom.css">
 
-    <!-- Load fonts style after rendering the layout styles -->
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
     <link rel="stylesheet" href="assets/icon/themify-icons/themify-icons.css">
@@ -132,26 +132,35 @@
                     
                 </div>
                 <div class="modal-container">
-                    <header  class="modal-header">
-                        <i class="ti-user"></i>
+                    <header  class="modal-header">                        
                         Đăng nhập 
                     </header>
                     
                     <div class="modal-body">
-                        <label for="" class="modal-label">
-                           <i class="ti-email">
-                                Tài khoản
-                           </i>
-                        </label>
-                        <input type="text" class="form-control" placeholder="Tài khoản...">
+                        <div class="field-group">
+                            <!-- <label for="" class="modal-label">
+                                <i class="ti-email">
+                                     Tài khoản
+                                </i>
+                             </label> -->
+                             <input type="text" class="form-control-login" placeholder="Tài khoản...">
+                             <div class="icon">
+                                <i class="fa fa-fw fa-user text-dark mr-3" aria-hidden="true"></i>
+                             </div>
+                        </div>
                         
-                
-                        <label for="" class="modal-label">
-                            <i class="ti-key">
-                               Mật khẩu 
-                            </i>
-                        </label>
-                        <input type="text" class="form-control" placeholder="Mật khẩu...">
+                        <div class="field-group">
+                            <!-- <label for="" class="modal-label">
+                                <i class="ti-lock">
+                                   Mật khẩu 
+                                </i>
+                            </label> -->
+                            <input type="text" class="form-control-login" placeholder="Mật khẩu...">
+                            <div class="icon">
+                                <i class="fa fa-fw fa-lock text-dark mr-3" aria-hidden="true"></i>
+                             </div>
+                        </div>
+                        
 
                         <div class="container-button">
                             <button class="login-button">Đăng nhập</button>
@@ -163,7 +172,7 @@
                         </div>
 
                         <div class="text-center p-t-136">
-                            <a class="txt2" href="">
+                            <a class="txt2" href="LoginForm/index.html">
                                 Tạo tài khoản
                                 <i class="ti-arrow-right"></i>
                             </a>
