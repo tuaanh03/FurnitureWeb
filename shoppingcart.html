@@ -86,7 +86,7 @@
                     <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
                         <i class="fa fa-fw fa-search text-dark mr-2"></i>
                     </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
+                    <a class="nav-icon position-relative text-decoration-none" onclick="directCart();">
                         <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark" id="cartNo">0</span>
                     </a>
@@ -215,6 +215,10 @@
     <script src="assets/js/custom.js"></script>
     <script>
         let quantityItem = localStorage.getItem("TotalQuantity");
+        if (quantityItem == null)
+        {
+            quantityItem = 0;
+        }
         let arrCart = JSON.parse(localStorage.getItem("myCart"));
         console.log(arrCart);
         document.querySelector("#cartNo").innerText = quantityItem;
@@ -233,7 +237,7 @@
             strData += `<tr>
                             <td>${item.sp.ten}</td>
                             <td>
-                                <img src="./assets/img/itemlist/${item.sp.hinh}" width="50px" height="50px" >
+                                <img src="./assets/img/itemlist/${item.sp.hinh[0]}" width="50px" height="50px" >
                             </td>
                             <td>${item.sp.gia}</td>
                             <td>
@@ -249,7 +253,13 @@
             tong += item.sp.gia * item.soluong;
         })
         document.querySelector("#tblcart").innerHTML = strheader + strData;
-        document.querySelector("#totalMoney").innerHTML = tong;
+        document.querySelector("#totalMoney").innerHTML = tong ;
+    </script>
+    <script>
+        function directCart()
+            {
+                location.href = "shoppingcart.html";
+            }
     </script>
     <!-- End Script -->
 

@@ -1,8 +1,8 @@
 
 const arrSP = [
-    { ma: "SP0001", ten: "Bàn ăn mặt kính cao cấp", hinh: "item8.jpg", gia: "9000000" },
-    { ma: "SP0002", ten: "Bàn inox mạ vàng đá cao cấp", hinh: "item2.jpg", gia: "9300000" },
-    { ma: "SP0003", ten: "Bộ bàn ăn tròn đơn giản", hinh: "item4.jpg", gia: "1500000" }
+    { ma: "SP0001", ten: "Bàn ăn mặt kính cao cấp", hinh: ["item8.jpg","item1.jpg"], gia: "9000000" },
+    { ma: "SP0002", ten: "Bàn inox mạ vàng đá cao cấp", hinh: ["item2.jpg","item3.jpg"], gia: "9300000" },
+    { ma: "SP0003", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item4.jpg","item5.jpg","item6.jpg"], gia: "1500000" }
     
 ];
 
@@ -14,11 +14,11 @@ for (let i = 0; i < arrSP.length; i++) {
         <div class="col-md-4">
             <div class="card mb-4 product-wap rounded-0">
                 <div class="card rounded-0">
-                    <img class="card-img rounded-0 img-fluid" src="assets/img/itemlist/${arrSP[i].hinh}">
+                    <img class="card-img rounded-0 img-fluid" src="assets/img/itemlist/${arrSP[i].hinh[0]}">
                     <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                         <ul class="list-unstyled">
                             <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                            <li><a class="btn btn-success text-white mt-2" href="#" onclick="showDetail('${arrSP[i].ma}')"><i class="far fa-eye"></i></a></li>
+                            <li><a class="btn btn-success text-white mt-2" href="#" onclick=\'showDetail(\`${obj}\`)\'><i class="far fa-eye"></i></a></li>
                             <li><a class="btn btn-success text-white mt-2" href="#" onclick="addCart('${arrSP[i].ma}')"><i class="fas fa-cart-plus"></i></a></li>
                         </ul>
                     </div>
@@ -123,7 +123,6 @@ function addCart(maSP)
 function showDetail(objSP)
 {
     console.log(objSP);
-    window.localStorage.clear();
     window.localStorage.setItem("sanpham", objSP);
     location.href = "shop-single.html";
 }

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Contact</title>
+    <title>Liên hệ</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -90,7 +90,7 @@
                     <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
                         <i class="fa fa-fw fa-search text-dark mr-2"></i>
                     </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
+                    <a class="nav-icon position-relative text-decoration-none" onclick="directCart();">
                         <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark " id="cartNo">0</span>
                     </a>
@@ -362,9 +362,19 @@
     <script src="assets/js/custom.js"></script>
     <script>
         let quantityItem = localStorage.getItem("TotalQuantity");
+        if (quantityItem == null)
+        {
+            quantityItem = 0;
+        }
         let arrCart = JSON.parse(localStorage.getItem("myCart"));
         console.log(arrCart);
         document.querySelector("#cartNo").innerText = quantityItem;
+    </script>
+    <script>
+        function directCart()
+            {
+                location.href = "shoppingcart.html";
+            }
     </script>
     <!-- End Script -->
 </body>
