@@ -88,7 +88,7 @@
                     </a>
                     <a class="nav-icon position-relative text-decoration-none" href="#">
                         <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark" id="cartNo">0</span>
                     </a>
                     <a class="nav-icon position-relative text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_login">
                         <i class="fa fa-fw fa-user text-dark mr-3"></i>
@@ -161,9 +161,6 @@
                              </div>
                         </div>
                         
-                
-                        
-
                         <div class="container-button">
                             <button class="login-button">Đăng nhập</button>
                         </div>
@@ -279,19 +276,19 @@
         </div>
         <div class="row">
             <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="./assets/img/category/category1.jpg" class="rounded-circle img-fluid border"></a>
+                <a href="/shop.html"><img src="./assets/img/category/category1.jpg" class="rounded-circle img-fluid border"></a>
                 <h5 class="text-center mt-3 mb-3">Bộ bàn ghế</h5>
-                <p class="text-center"><a class="btn btn-success">Đi đến cửa hàng</a></p>
+                <p class="text-center"><a class="btn btn-success" href="/shop.html">Đi đến cửa hàng</a></p>
             </div>
             <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="./assets/img/category/category3.webp" class="rounded-circle img-fluid border"></a>
+                <a href="/shop.html"><img src="./assets/img/category/category3.webp" class="rounded-circle img-fluid border"></a>
                 <h2 class="h5 text-center mt-3 mb-3">Giường ngủ</h2>
-                <p class="text-center"><a class="btn btn-success">Đi đến cửa hàng</a></p>
+                <p class="text-center"><a class="btn btn-success" href="/shop.html">Đi đến cửa hàng</a></p>
             </div>
             <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="./assets/img/category/category4.png" class="rounded-circle img-fluid border"></a>
+                <a href="/shop.html"><img src="./assets/img/category/category4.png" class="rounded-circle img-fluid border"></a>
                 <h2 class="h5 text-center mt-3 mb-3">Phụ kiện</h2>
-                <p class="text-center"><a class="btn btn-success">Đi đến cửa hàng</a></p>
+                <p class="text-center"><a class="btn btn-success" href="/shop.html">Đi đến cửa hàng</a></p>
             </div>
         </div>
     </section>
@@ -490,6 +487,12 @@
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/templatemo.js"></script>
     <script src="assets/js/custom.js"></script>
+    <script>
+        let quantityItem = localStorage.getItem("TotalQuantity");
+        let arrCart = JSON.parse(localStorage.getItem("myCart"));
+        console.log(arrCart);
+        document.querySelector("#cartNo").innerText = quantityItem;
+    </script>
     <!-- End Script -->
 
  
