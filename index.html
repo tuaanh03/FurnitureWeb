@@ -90,7 +90,7 @@
                         <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark" id="cartNo">0</span>
                     </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_login">
+                    <a class="nav-icon position-relative text-decoration-none" onclick="directLogin();" >
                         <i class="fa fa-fw fa-user text-dark mr-3"></i>
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
                     </a>
@@ -118,73 +118,6 @@
         </div>
     </div>
 
-    <div class="modal fade bg-white" id="templatemo_login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="w-100 pt-1 mb-5 text-right">               
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="" method="get" class="modal-content modal-body border-0 p-0">
-                <div class="input-group mb-2">
-                    <!-- <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
-                    <button type="submit" class="input-group-text bg-success text-light">
-                        <i class="fa fa-fw fa-search text-white"></i>
-                    </button> -->
-                    
-                </div>
-                <div class="modal-container">
-                    <header  class="modal-header">                        
-                        Đăng nhập 
-                    </header>
-                    
-                    <div class="modal-body">
-                        <div class="field-group">
-                            <!-- <label for="" class="modal-label">
-                                <i class="ti-email">
-                                     Tài khoản
-                                </i>
-                             </label> -->
-                             <input type="text" class="form-control-login" placeholder="Tài khoản...">
-                             <div class="icon">
-                                <i class="fa fa-fw fa-user text-dark mr-3" aria-hidden="true"></i>
-                             </div>
-                        </div>
-                        
-                        <div class="field-group">
-                            <!-- <label for="" class="modal-label">
-                                <i class="ti-lock">
-                                   Mật khẩu 
-                                </i>
-                            </label> -->
-                            <input type="text" class="form-control-login" placeholder="Mật khẩu...">
-                            <div class="icon">
-                                <i class="fa fa-fw fa-lock text-dark mr-3" aria-hidden="true"></i>
-                             </div>
-                        </div>
-                        
-                        <div class="container-button">
-                            <button class="login-button">Đăng nhập</button>
-                        </div>
-
-                        <div class="text-center p-t-12">
-                            <span class="txt1">Quên</span>
-                            <a class="txt2" href="#">Tài khoản / Mật khẩu</a>
-                        </div>
-
-                        <div class="text-center p-t-136">
-                            <a class="txt2" href="LoginForm/index.html">
-                                Tạo tài khoản
-                                <i class="ti-arrow-right"></i>
-                            </a>
-                        </div>
-
-                    </div> 
-                </div>
-            </form>
-            
-        </div>
-    </div>
-
-
 
     <!-- Start Banner Hero -->
     <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
@@ -204,13 +137,7 @@
                             <div class="text-align-left align-self-center">
                                 <h1 class="h1 text-success"><b>SILK</b> BED LINEN</h1>
                                 <h3 class="h2">For the ultimate luxury sleeping experience</h3>
-                                <!-- <p>
-                                    Zay Shop is an eCommerce HTML5 CSS template with latest version of Bootstrap 5 (beta 1). 
-                                    This template is 100% free provided by <a rel="sponsored" class="text-success" href="https://templatemo.com" target="_blank">TemplateMo</a> website. 
-                                    Image credits go to <a rel="sponsored" class="text-success" href="https://stories.freepik.com/" target="_blank">Freepik Stories</a>,
-                                    <a rel="sponsored" class="text-success" href="https://unsplash.com/" target="_blank">Unsplash</a> and
-                                    <a rel="sponsored" class="text-success" href="https://icons8.com/" target="_blank">Icons 8</a>.
-                                </p> -->
+                                
                             </div>
                         </div>
                     </div>
@@ -499,10 +426,15 @@
     </script>
     <script>
         function directCart()
-            {
-                location.href = "shoppingcart.html";
-            }
-    </script>
+        {
+            location.href = "shoppingcart.html";
+        }
+        function directLogin() 
+        {
+            location.href = "./LoginForm/index2.html";
+        }
+    </script>   
+  
     <!-- End Script -->
 
  

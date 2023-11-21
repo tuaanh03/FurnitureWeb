@@ -241,9 +241,9 @@
                             </td>
                             <td>${item.sp.gia}</td>
                             <td>
-                                <button>-</button>
-                                <input type="number" name="txtQty" id="txtQty" style="width: 40px;" value = "${item.soluong}">
-                                <button>+</button>
+                                <li class="list-inline-item" style = "margin-right:0;"><span class="btn btn-success" id="btn-minus" onclick = "decrement()">-</span></li>
+                                <li class="list-inline-item" style = "margin-right:0"><span class="badge bg-secondary" id="var-value">${item.soluong}</span></li>
+                                <li class="list-inline-item"><span class="btn btn-success" id="btn-plus" onclick = "increment()">+</span></li>
                             </td>
                             <td>${item.sp.gia * item.soluong}</td>
                             <td>
@@ -260,6 +260,15 @@
             {
                 location.href = "shoppingcart.html";
             }
+    </script>
+    <script>
+        let increment = () => {
+            console.log("increment");
+        };
+        let decrement = () => {
+            console.log("decrement");
+        };
+        let updata = () => {};
     </script>
     <!-- End Script -->
 
