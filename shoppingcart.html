@@ -18,6 +18,43 @@
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
     <link rel="stylesheet" href="assets/icon/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="assets/css/modal-login.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        #cart-items {
+            margin-top: 20px;
+        }
+        
+        .cart-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .cart-item p {
+            margin: 0;
+            flex-grow: 2;
+            /* Allow the product info to take available space */
+        }
+        
+        .delete-button {
+            cursor: pointer;
+            background-color: #ff6961;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 
 <body>
@@ -50,7 +87,7 @@
             <a class="navbar-brand text-success logo h1 align-self-center" href="index.html" style="text-align: center;">
                 <img src="assets/img/vaticon.png" alt="" style="width: 30%">
                 <h1 style="font-size: 20px;">Vũ Anh Toàn </h1>
-                <!-- VAT -->               
+                <!-- VAT -->
             </a>
 
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -102,14 +139,9 @@
     <!-- Close Header -->
 
     <!-- Start Content -->
-    <div class="content">
-        <div class="inner">
-            <table id="tblcart" border="0" style="width: 90%;">
-                
-            </table>
-            <div id="totalMoney"></div>
-        </div>
-    </div>
+    <h1>Giỏ hàng của bạn</h1>
+
+    <div id="cart-items"></div>
     <!-- Close Content -->
 
     <!-- Start Footer -->
@@ -121,8 +153,7 @@
                     <h2 class="h2 text-success border-bottom pb-3 border-light logo">VAT Shop</h2>
                     <ul class="list-unstyled text-light footer-link-list">
                         <li>
-                            <i class="fas fa-map-marker-alt fa-fw"></i>
-                            273 Đ. An Dương Vương, Phường 3, Quận 5, Thành phố Hồ Chí Minh
+                            <i class="fas fa-map-marker-alt fa-fw"></i> 273 Đ. An Dương Vương, Phường 3, Quận 5, Thành phố Hồ Chí Minh
                         </li>
                         <li>
                             <i class="fa fa-phone fa-fw"></i>
@@ -196,8 +227,7 @@
                 <div class="row pt-2">
                     <div class="col-12">
                         <p class="text-left text-light">
-                            Copyright &copy; 2023 Company Name 
-                            | Designed by <a rel="sponsored" href="#" target="_blank">VAT</a>
+                            Copyright &copy; 2023 Company Name | Designed by <a rel="sponsored" href="#" target="_blank">VAT</a>
                         </p>
                     </div>
                 </div>
@@ -213,66 +243,55 @@
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/templatemo.js"></script>
     <script src="assets/js/custom.js"></script>
-    <script>
-        let quantityItem = localStorage.getItem("TotalQuantity");
-        if (quantityItem == null)
-        {
-            quantityItem = 0;
-        }
-        let arrCart = JSON.parse(localStorage.getItem("myCart"));
-        console.log(arrCart);
-        document.querySelector("#cartNo").innerText = quantityItem;
 
-        let strheader = `<tr>
-                            <th>Tên sản phẩm</th>
-                            <th>Hình</th>
-                            <th>Giá</th>
-                            <th>Số lượng</th>
-                            <th>Thành tiền</th>
-                            <th></th>
-                        </tr>`;
-        let strData = "";
-        let tong = 0;
-        arrCart.forEach(item => {
-            strData += `<tr>
-                            <td>${item.sp.ten}</td>
-                            <td>
-                                <img src="./assets/img/itemlist/${item.sp.hinh[0]}" width="50px" height="50px" >
-                            </td>
-                            <td>${item.sp.gia}</td>
-                            <td>
-                                <li class="list-inline-item" style = "margin-right:0;"><span class="btn btn-success" id="btn-minus" onclick = "decrement()">-</span></li>
-                                <li class="list-inline-item" style = "margin-right:0"><span class="badge bg-secondary" id="var-value">${item.soluong}</span></li>
-                                <li class="list-inline-item"><span class="btn btn-success" id="btn-plus" onclick = "increment()">+</span></li>
-                            </td>
-                            <td>${item.sp.gia * item.soluong}</td>
-                            <td>
-                                <button>Xóa</button>
-                            </td>
-                        </tr>`
-            tong += item.sp.gia * item.soluong;
-        })
-        document.querySelector("#tblcart").innerHTML = strheader + strData;
-        document.querySelector("#totalMoney").innerHTML = tong ;
-    </script>
     <script>
-        function directCart()
-            {
-                location.href = "shoppingcart.html";
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the cart from localStorage
+            var cart = localStorage.getItem('cart');
+
+            // Check if the cart exists
+            if (cart) {
+                // Parse the cart from JSON
+                cart = JSON.parse(cart);
+
+                // Display each item in the cart
+                var cartItemsDiv = document.getElementById('cart-items');
+                cart.forEach(function(item, index) {
+                    var itemDiv = document.createElement('div');
+                    itemDiv.classList.add('cart-item');
+                    itemDiv.innerHTML = `<p><strong>${item.name}</strong> - Price: ${item.price} - Quantity: ${item.quantity}</p>
+                                         <button class="delete-button" onclick="deleteItem(${index})">Xóa</button>`;
+                    cartItemsDiv.appendChild(itemDiv);
+                });
+            } else {
+                // Display a message if the cart is empty
+                document.getElementById('cart-items').innerHTML = '<p>Your cart is empty.</p>';
             }
-    </script>
-    <script>
-        let increment = () => {
-            console.log("increment");
-        };
-        let decrement = () => {
-            console.log("decrement");
-        };
-        let updata = () => {};
-    </script>
-    <!-- End Script -->
+        });
 
- 
+        // Function to delete an item from the cart
+        function deleteItem(index) {
+            // Get the cart from localStorage
+            var cart = JSON.parse(localStorage.getItem('cart'));
+
+            // Remove the item at the specified index
+            cart.splice(index, 1);
+
+            // Save the updated cart back to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Refresh the page to reflect the changes
+            location.reload();
+        }
+    </script>
+</body>
+
+</html>
+
+
+<!-- End Script -->
+
+
 
 </body>
 

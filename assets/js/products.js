@@ -1,9 +1,8 @@
-
 const arrSP = [
-    { ma: "SP0001", ten: "Bàn ăn mặt kính cao cấp", hinh: ["item8.jpg","item1.jpg"], gia: "9000000" },
-    { ma: "SP0002", ten: "Bàn inox mạ vàng đá cao cấp", hinh: ["item2.jpg","item3.jpg"], gia: "9300000" },
-    { ma: "SP0003", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item4.jpg","item5.jpg","item6.jpg"], gia: "1500000" }
-    
+    { ma: "SP0001", ten: "Bàn ăn mặt kính cao cấp", hinh: ["item8.jpg", "item1.jpg"], gia: "9000000" },
+    { ma: "SP0002", ten: "Bàn inox mạ vàng đá cao cấp", hinh: ["item2.jpg", "item3.jpg"], gia: "9300000" },
+    { ma: "SP0003", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item4.jpg", "item5.jpg", "item6.jpg"], gia: "1500000" }
+
 ];
 
 var str = "";
@@ -54,21 +53,17 @@ for (let i = 0; i < arrSP.length; i++) {
 
 document.querySelector("#product-list").innerHTML = str;
 let quantityItem = 0;
-let quantity = localStorage.getItem("TotalQuantity");
-if (quantity == null)
-{
+let quantity = localStorage.getItem("cart-total");
+if (quantity == null) {
     quantity = 0;
 }
 document.querySelector("#cartNo").innerText = quantity;
 console.log(quantity);
-let arrCart = localStorage.getItem("myCart");
-if (arrCart == null)
-{
+let arrCart = localStorage.getItem("cart");
+if (arrCart == null) {
     arrCart = [];
-}
-else
-{
-    arrCart = JSON.parse(localStorage.getItem("myCart"));
+} else {
+    arrCart = JSON.parse(localStorage.getItem("cart"));
 }
 console.log(arrCart);
 // new function , not compulsory
@@ -83,49 +78,41 @@ function calculateTotalQuantity() {
 
 //
 
-function addCart(maSP)
-{
+function addCart(maSP) {
     var item;
-    
+
     var flag = false;
 
     for (let i = 0; i < arrSP.length; i++) {
-        if(arrSP[i].ma == maSP)
-        {
+        if (arrSP[i].ma == maSP) {
             item = arrSP[i];
-            quantity = 1;  
-            break;         
-        }           
+            quantity = 1;
+            break;
+        }
     }
 
     for (let i = 0; i < arrCart.length; i++) {
-        if(arrCart[i].sp.ma == maSP)
-        {
-            arrCart[i].soluong++;          
+        if (arrCart[i].sp.ma == maSP) {
+            arrCart[i].soluong++;
             flag = true;
             break;
-        }        
+        }
     }
-    
-    if(flag == false)
-    {
-        let cartItem = {sp: item, soluong : quantity};
-        arrCart.push(cartItem);       
+
+    if (flag == false) {
+        let cartItem = { sp: item, soluong: quantity };
+        arrCart.push(cartItem);
     }
-    
-    quantityItem = calculateTotalQuantity();    
+
+    quantityItem = calculateTotalQuantity();
     document.querySelector("#cartNo").innerText = quantityItem;
     localStorage.setItem("TotalQuantity", quantityItem + "");
     localStorage.setItem("myCart", JSON.stringify(arrCart));
     console.log(arrCart);
 }
 
-function showDetail(objSP)
-{
+function showDetail(objSP) {
     console.log(objSP);
     window.localStorage.setItem("sanpham", objSP);
     location.href = "shop-single.html";
 }
-
-
-
