@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="assets/img/vaticon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicone.png">
+        <link rel="apple-touch-icon" href="assets/img/vaticon.png">
+        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicone.png">
 
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/templatemo.css">
@@ -22,8 +22,8 @@
     <link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css">
     <link rel="stylesheet" href="assets/icon/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="assets/css/modal-login.css">
-
-
+    
+    
 
 
 </head>
@@ -58,7 +58,7 @@
             <a class="navbar-brand text-success logo h1 align-self-center" href="index.html" style="text-align: center;">
                 <img src="assets/img/vaticon.png" alt="" style="width: 30%">
                 <h1 style="font-size: 20px;">Vũ Anh Toàn </h1>
-                <!-- VAT -->
+                <!-- VAT -->               
             </a>
 
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -94,11 +94,11 @@
                     <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
                         <i class="fa fa-fw fa-search text-dark mr-2"></i>
                     </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="shoppingcart.html">
+                    <a class="nav-icon position-relative text-decoration-none" onclick="directCart();">
                         <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark" id="cartNo">0</span>
                     </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_login">
+                    <a class="nav-icon position-relative text-decoration-none" onclick="directLogin();">
                         <i class="fa fa-fw fa-user text-dark mr-3"></i>
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
                     </a>
@@ -128,7 +128,7 @@
 
     <div class="modal fade bg-white" id="templatemo_login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
-            <div class="w-100 pt-1 mb-5 text-right">
+            <div class="w-100 pt-1 mb-5 text-right">               
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="" method="get" class="modal-content modal-body border-0 p-0">
@@ -137,13 +137,13 @@
                     <button type="submit" class="input-group-text bg-success text-light">
                         <i class="fa fa-fw fa-search text-white"></i>
                     </button> -->
-
+                    
                 </div>
                 <div class="modal-container">
-                    <header class="modal-header">
-                        Đăng nhập
+                    <header  class="modal-header">                        
+                        Đăng nhập 
                     </header>
-
+                    
                     <div class="modal-body">
                         <div class="field-group">
                             <!-- <label for="" class="modal-label">
@@ -151,12 +151,12 @@
                                      Tài khoản
                                 </i>
                              </label> -->
-                            <input type="text" class="form-control-login" placeholder="Tài khoản...">
-                            <div class="icon">
+                             <input type="text" class="form-control-login" placeholder="Tài khoản...">
+                             <div class="icon">
                                 <i class="fa fa-fw fa-user text-dark mr-3" aria-hidden="true"></i>
-                            </div>
+                             </div>
                         </div>
-
+                        
                         <div class="field-group">
                             <!-- <label for="" class="modal-label">
                                 <i class="ti-lock">
@@ -166,9 +166,9 @@
                             <input type="text" class="form-control-login" placeholder="Mật khẩu...">
                             <div class="icon">
                                 <i class="fa fa-fw fa-lock text-dark mr-3" aria-hidden="true"></i>
-                            </div>
+                             </div>
                         </div>
-
+                        
 
                         <div class="container-button">
                             <button class="login-button">Đăng nhập</button>
@@ -186,10 +186,10 @@
                             </a>
                         </div>
 
-                    </div>
+                    </div> 
                 </div>
             </form>
-
+            
         </div>
     </div>
 
@@ -219,7 +219,7 @@
                             <div class="carousel-inner product-links-wap" role="listbox">
 
                                 <!--First slide-->
-                                <div class="carousel-item active">
+                                <div class="carousel-item active" >
                                     <div class="row" id="thumbnail">
                                         <!-- <div class="col-4">
                                             <a href="#">
@@ -321,8 +321,7 @@
                             </ul>
 
                             <h6>Mô tả:</h6>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse. Donec condimentum elementum convallis. Nunc sed orci a diam ultrices aliquet
-                                interdum quis nulla.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse. Donec condimentum elementum convallis. Nunc sed orci a diam ultrices aliquet interdum quis nulla.</p>
                             <ul class="list-inline">
                                 <li class="list-inline-item">
                                     <h6>Màu sắc có sẵn :</h6>
@@ -374,7 +373,7 @@
                                         <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">Mua</button>
                                     </div>
                                     <div class="col d-grid">
-                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard" onclick="addToCart()">Thêm vào giỏ</button>
+                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard" onclick="addToCart();">Thêm vào giỏ</button>
                                     </div>
                                 </div>
                             </form>
@@ -870,7 +869,8 @@
                     <h2 class="h2 text-success border-bottom pb-3 border-light logo">VAT Shop</h2>
                     <ul class="list-unstyled text-light footer-link-list">
                         <li>
-                            <i class="fas fa-map-marker-alt fa-fw"></i> 273 Đ. An Dương Vương, Phường 3, Quận 5, Thành phố Hồ Chí Minh
+                            <i class="fas fa-map-marker-alt fa-fw"></i>
+                            273 Đ. An Dương Vương, Phường 3, Quận 5, Thành phố Hồ Chí Minh
                         </li>
                         <li>
                             <i class="fa fa-phone fa-fw"></i>
@@ -944,7 +944,8 @@
                 <div class="row pt-2">
                     <div class="col-12">
                         <p class="text-left text-light">
-                            Copyright &copy; 2023 Company Name | Designed by <a rel="sponsored" href="#" target="_blank">VAT</a>
+                            Copyright &copy; 2023 Company Name 
+                            | Designed by <a rel="sponsored" href="#" target="_blank">VAT</a>
                         </p>
                     </div>
                 </div>
@@ -959,12 +960,23 @@
     <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/templatemo.js"></script>
-    <script src="assets/js/custom.js"></script>
-    <script src="productplus.js"></script>
+    <script src="assets/js/custom.js"></script> 
     <!-- End Script -->
 
     <!-- Start Slider Script -->
     <script src="assets/js/slick.min.js"></script>
+
+    <script>
+        function directCart() {
+                location.href = "shoppingcart.html";
+        }
+
+        function directLogin() {
+                location.href = "login.html";
+            }
+
+    </script>
+
     <script>
         $('#carousel-related-product').slick({
             infinite: true,
@@ -973,29 +985,33 @@
             slidesToScroll: 3,
             dots: true,
             responsive: [{
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 3
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 3
+                    }
                 }
-            }, {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 3
-                }
-            }, {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 3
-                }
-            }]
+            ]
         });
     </script>
     <script>
         let quantityItem = localStorage.getItem("TotalQuantity");
-        if (quantityItem == null) {
+        if (quantityItem == null)
+        {
             quantityItem = 0;
         }
         let arrCart = JSON.parse(localStorage.getItem("myCart"));
@@ -1006,68 +1022,82 @@
         let objSP = JSON.parse(localStorage.getItem("sanpham"));
         document.querySelector("#mainImg").src = `assets/img/itemlist/${objSP.hinh[0]}`;
         let str = "";
-        for (let i = 0; i < objSP.hinh.length; i++) {
-            str +=
-                `
-        <div class="col-4">
-            <a href="#">
-                <img class="card-img img-fluid" src="assets/img/itemlist/${objSP.hinh[i]}" onclick="changeImg(this.src);" alt="Product Image 1">
-            </a>
-        </div>
-        `;
+        for (let i = 0; i < objSP.hinh.length; i++) {        
+            str += 
+            `
+            <div class="col-4">
+                <a href="#">
+                    <img class="card-img img-fluid" src="assets/img/itemlist/${objSP.hinh[i]}" onclick="changeImg(this.src);" alt="Product Image 1">
+                </a>
+            </div>
+            `;
         }
         document.querySelector("#thumbnail").innerHTML = str;
         document.querySelector("#proName").innerText = objSP.ten;
         document.querySelector("#proPrice").innerText = objSP.gia;
 
-        function changeImg(srcImg) {
+        function changeImg(srcImg)
+        {
             document.querySelector("#mainImg").src = srcImg;
         }
-
-
-        function addToCart() {
-            // Get product details
-            var productName = document.getElementById('proName').innerText;
-            var productPrice = document.getElementById('proPrice').innerText;
-            var productQuantity = document.getElementById('var-value').innerText;
-
-            // Create an object to represent the item
-            var cartItem = {
-                name: productName,
-                price: productPrice,
-                quantity: productQuantity
-            };
-
-            // Check if the cart is already stored in localStorage
-            var cart = localStorage.getItem('cart');
-
-            if (cart) {
-                // If the cart exists, parse it from JSON and add the new item
-                cart = JSON.parse(cart);
-                // Check if the item is already in the cart
-                var existingItemIndex = cart.findIndex(item => item.name === productName);
-                if (existingItemIndex !== -1) {
-                    // If the item is already in the cart, update its quantity
-                    cart[existingItemIndex].quantity = parseInt(cart[existingItemIndex].quantity) + parseInt(productQuantity);
-                } else {
-                    // If the item is not in the cart, add it
-                    cart.push(cartItem);
-                }
-            } else {
-                // If the cart doesn't exist, create a new array with the current item
-                cart = [cartItem];
-            }
-
-            // Save the updated cart back to localStorage
-            localStorage.setItem('cart', JSON.stringify(cart));
-
-            // You can add additional logic here, such as displaying a success message
-            alert('Product added to cart!');
-        }
     </script>
-    <!--Start Script-->
+
+<script>
+    function addToCart() {
+
+        // let productName = document.querySelector("#proName").innerText;
+        // let productPrice = document.querySelector("#proPrice").innerText;
+        // let productQuantity = document.querySelector("#cartNo").innerText;
+
+     
+        // var product = {
+        //     name: productName,
+        //     price: productPrice,
+        //     quantity: productQuantity
+        // };
+
+        // let existingCart = localStorage.getItem("myCart");
+        // if (existingCart == null)
+        // {
+        //     existingCart = [];
+        // }
+        // else
+        // {
+        //     existingCart = JSON.parse(localStorage.getItem("myCart"));
+        // }
+
+        // console.log(existingCart);
+   
+        // let existingProductIndex = existingCart.findIndex(item => item.name === productName);
+
+        // if (existingProductIndex !== -1) {
+
+        //     existingCart[existingProductIndex].quantity += parseInt(productQuantity);
+        // } else {
+            
+        //     existingCart.push(product);
+        // }
+
+    
+        // let totalQuantity = existingCart.reduce((total, item) => total + item.quantity, 0);
+        // localStorage.setItem("TotalQuantity", totalQuantity);
+
+       
+        // localStorage.setItem("myCart", JSON.stringify(existingCart));
+
+        
+        // document.querySelector("#cartNo").innerText = totalQuantity;
+
+       
+        // alert("Đã thêm sản phẩm vào giỏ hàng!");
+    }
+
+        
+
+</script>
 
     <!-- End Slider Script -->
+
 </body>
 
 </html>

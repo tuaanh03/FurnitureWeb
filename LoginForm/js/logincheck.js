@@ -6,6 +6,8 @@ function auth() {
         alert("Đăng nhập thành công");
         return;
     }
+
+
     else {
         alert("Đăng nhập thất bại");
         return;
