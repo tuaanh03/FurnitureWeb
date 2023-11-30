@@ -1,0 +1,8 @@
+.number-page {
+    display: inline-block;
+    margin: 0;
+}
+
+.number-page .page-item {
+    display: inline-block;
+}
