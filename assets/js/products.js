@@ -74,6 +74,7 @@ else
     arrCart = JSON.parse(localStorage.getItem("myCart"));
 }
 console.log(arrCart);
+
 // new function , not compulsory
 
 function calculateTotalQuantity() {
