@@ -26,6 +26,7 @@ function getCurrentPage(currentPage)
 {
     start = (currentpage - 1) * perpage;
     end = currentpage * perpage;
+    console.log(start,end);
 }
 //end paging
 
@@ -72,8 +73,14 @@ renderProduct();
 
 function renderListPage()
 {
+    let firsthtml = 
+    `
+    <li class="page-item">
+        <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="#">${1}</a>
+    </li>
+    `
     let html = '';
-    for (let i =1; i <= totalPages;i++)
+    for (let i = 2; i <= totalPages;i++)
     {
         html += 
         `
@@ -81,27 +88,45 @@ function renderListPage()
             <a class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="#">${i}</a>
         </li>
         `
-        document.getElementById('number-page').innerHTML = html;
+        document.getElementById('number-page').innerHTML = firsthtml + html;
     }
 }
 renderListPage();
 
 function changePage()
 {
-    const currentPage = document.querySelectorAll('.number-page li');
-    console.log(currentpage);
+    const currentPage = document.querySelectorAll('.number-page li a');
+    console.log(currentPage);
     for (let i = 0; i < currentPage.length; i++)
     {
         currentPage[i].addEventListener('click', () =>{
             let value = i + 1;
-            console.log(i);
+            // console.log(value);
             currentpage = value;
+            $('.number-page li a').removeClass('active');
+            currentPage[i].classList.add('active');
+            if(currentpage > 1 && currentpage < totalPages)
+            {
+                $('.btns-privous').removeClass('disable');
+                $('.btns-next').removeClass('disable');
+            }
+            if(currentpage === 1)
+            {
+                $('.btns-privous').addClass('disable');
+                $('.btns-next').removeClass('disable');
+            }
+            if(currentpage === totalPages)
+            {
+                $('.btns-next').addClass('disable');
+                $('.btns-privous').removeClass('disable');
+            }
             getCurrentPage(currentpage);
             renderProduct();
         })
     }
 }
 changePage();
+
 // renderPage
 btnNext.addEventListener('click', () => {
     currentpage++;
@@ -109,16 +134,30 @@ btnNext.addEventListener('click', () => {
     {
         currentpage = totalPages;
     }
+    if (currentpage === totalPages)
+    {
+        $('.btns-next').addClass('disable');
+    }
+    $('.btns-privous').removeClass('disable');
+    $('.number-page li a').removeClass('active');
+    $(`.number-page li a:eq(${currentpage - 1})`).addClass('active');
     getCurrentPage(currentpage);
     renderProduct();
 })
 
 btnPrivous.addEventListener('click', () => {
     currentpage--;
-    if(currentpage > totalPages)
+    if(currentpage <= 1)
     {
-        currentpage = totalPages;
+        currentpage = 1;
     }
+    if(currentpage === 1)
+    {
+        $('.btns-privous').addClass('disable');
+    }
+    $('.btns-next').removeClass('disable');
+    $('.number-page li a').removeClass('active');
+    $(`.number-page li a:eq(${currentpage - 1})`).addClass('active');
     getCurrentPage(currentpage);
     renderProduct();
 })
