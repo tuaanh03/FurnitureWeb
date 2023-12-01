@@ -68,3 +68,7 @@ button:hover {
     .number-page .page-item {
         display: inline-block;
     }
+#checkout-button
+{
+    margin-left : 10px ;
+}
