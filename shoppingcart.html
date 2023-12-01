@@ -111,6 +111,7 @@
             <div id="totalMoney">
                
             </div>
+            <button onclick="redirectToPayPage()">Thanh toán</button>
 
             <div id="emptyCardmessage" style="display: none;">
                 <p style="text-align: center; padding: 50px;">Không có sản phẩm nào trong giỏ hàng của bạn.</p>
@@ -249,10 +250,14 @@
                 document.getElementById("emptyCardmessage").style.display = "none";
                 arrCart.forEach(item => {
                 strData += `<tr>
-                                <td>${item.sp.ten}</td>
-                                <td>
-                                    <img src="./assets/img/itemlist/${item.sp.hinh[0]}" width="50px" height="50px" >
-                                </td>
+                               <td style="padding-left: 40px">
+    <input style="" type="checkbox" class="product-checkbox"
+        value="${item.sp.ten}"
+        data-product-name="${item.sp.ten}"
+        data-product-price="${item.sp.gia}"
+        data-product-quantity="${item.soluong}">
+    ${item.sp.ten}
+</td>
                                 <td>${item.sp.gia}</td>
                                 <td>
                                     <li class="list-inline-item" style="margin-right: 0;">
@@ -269,7 +274,9 @@
                                 <td>
                                     <button onclick="removeItem(${arrCart.indexOf(item)}); alert('Bạn có chắc chắn muốn xóa ?')">Xóa</button>
                                 </td>
+
                             </tr>`;
+
                 tong += item.sp.gia * item.soluong;
             });
             document.querySelector("#tblcart").innerHTML = strheader + strData;
@@ -277,6 +284,7 @@
             `
             <h2>Tổng cộng:  ${tong}<sup>đ</sup></h2>
             `;
+
             document.querySelector("#totalMoney").innerHTML = strtotal;
             }
     
@@ -290,7 +298,7 @@
 
            
         }
-    
+
         function increment(index) {
             arrCart[index].soluong++;
             quantityItem++;
@@ -320,7 +328,40 @@
                 location.href = "shoppingcart.html";
             }
     </script>
-    
+    <script>
+        function redirectToPayPage() {
+            // Lấy tất cả các checkbox sản phẩm đã chọn
+            const checkboxes = document.querySelectorAll('.product-checkbox:checked');
+
+            // Tạo một mảng để lưu trữ thông tin các sản phẩm đã chọn
+            const selectedProducts = [];
+
+            // Lặp qua tất cả các checkbox
+            checkboxes.forEach(checkbox => {
+                // Lấy thông tin từ dataset của checkbox
+                const productName = checkbox.dataset.productName;
+                const productPrice = checkbox.dataset.productPrice;
+                const productQuantity = checkbox.dataset.productQuantity;
+
+                // Tạo một đối tượng để lưu thông tin sản phẩm
+                const product = {
+                    name: productName,
+                    price: productPrice,
+                    quantity: productQuantity
+                };
+
+                // Thêm sản phẩm vào mảng
+                selectedProducts.push(product);
+            });
+
+            // Lưu thông tin vào Local Storage
+            localStorage.setItem('selectedProducts', JSON.stringify(selectedProducts));
+
+            // Chuyển hướng đến trang pay.html
+            window.location.href = 'pay.html';
+        }
+
+    </script>
     
     <!-- End Script -->
 
