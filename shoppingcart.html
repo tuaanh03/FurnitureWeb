@@ -111,7 +111,7 @@
             <div id="totalMoney">
 
             </div>
-            <button onclick="redirectToPayPage()">Thanh toán</button>
+            <button id ="checkoutbutton" onclick="redirectToPayPage()">Thanh toán</button>
 
             <div id="emptyCardmessage" style="display: none;">
                 <p style="text-align: center; padding: 50px;">Không có sản phẩm nào trong giỏ hàng của bạn.</p>
@@ -244,10 +244,12 @@
                 document.getElementById("emptyCardmessage").style.display = "block";
                 document.getElementById("tblcart").style.display = "none";
                 document.getElementById("totalMoney").style.display = "none";
+                document.getElementById("checkoutbutton").style.display = "none";
             }
             else
             {
                 document.getElementById("emptyCardmessage").style.display = "none";
+                document.getElementById("checkoutbutton").style.display = "block";
                 arrCart.forEach(item => {
                 strData += `<tr>
                                <td style="padding-left: 40px">
