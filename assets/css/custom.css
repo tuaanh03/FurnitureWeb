@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .product-checkbox {
     transform: scale(1.5); /* Thay đổi kích thước của checkbox */
     margin-right: 5px;
@@ -59,4 +60,13 @@ button {
 
 button:hover {
     background-color: #45a049;
+=======
+.number-page {
+    display: inline-block;
+    margin: 0;
+}
+
+.number-page .page-item {
+    display: inline-block;
+>>>>>>> eb4b6fca0169a5c44d8381f319b1355b83c41a94
 }

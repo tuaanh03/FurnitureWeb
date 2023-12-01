@@ -1176,16 +1176,17 @@
             let totalQuantity = parseInt(localStorage.getItem("TotalQuantity")) || 0;
             let cartItem = {
                 sp: {
-                    name: productName,
-                    price: productPrice,
-                    hinh: [objSP.hinh[0]] // Add the main image to the cart item
+                    id: objSP.ma,
+                    ten: objSP.ten,
+                    gia: objSP.gia,
+                    hinh: [objSP.hinh[0]] 
                 },
                 soluong: productQuantity
             };
     
             let arrCart = JSON.parse(localStorage.getItem("myCart")) || [];
     
-            let existingItemIndex = arrCart.findIndex(item => item.sp.name === productName);
+            let existingItemIndex = arrCart.findIndex(item => item.sp.ten === productName);
     
             if (existingItemIndex !== -1) {
                 arrCart[existingItemIndex].soluong += productQuantity;
@@ -1201,7 +1202,6 @@
             alert('Product added to cart!');
         }
     </script>
-
 
 
 
