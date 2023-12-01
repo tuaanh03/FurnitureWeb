@@ -6,12 +6,26 @@ const arrSP = [
     { ma: "SP0004", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["chair1.png", "item5.jpg", "item6.jpg"], gia: "1500000" },
     { ma: "SP0005", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["chair3.png", "item5.jpg", "item6.jpg"], gia: "1500000" },
     { ma: "SP0006", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["chair4.png", "item5.jpg", "item6.jpg"], gia: "1500000" },
-    { ma: "SP0007", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["chair5.png", "item5.jpg", "item6.jpg"], gia: "1500000" }
+    { ma: "SP0007", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["chair5.png", "item5.jpg", "item6.jpg"], gia: "1500000" },
+    { ma: "SP0008", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["chair6.png", "item5.jpg", "item6.jpg"], gia: "1500000" },
+    { ma: "SP0010", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item10.jpg", "item5.jpg", "item6.jpg"], gia: "1500000" },
+    { ma: "SP0011", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item11.jpg", "item5.jpg", "item6.jpg"], gia: "1500000" },
+    { ma: "SP0012", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item12.jpg", "item5.jpg", "item6.jpg"], gia: "1500000" },
+    { ma: "SP0013", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item13.jpg", "item5.jpg", "item6.jpg"], gia: "1500000" },
+    { ma: "SP0014", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item22.jpg", "item5.jpg", "item6.jpg"], gia: "1500000" }, //Bàn làm việc hiện đại chân sắt 2 ngăn kéo Pula BLV08
+    { ma: "SP0015", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item23.jpg", "item5.jpg", "item6.jpg"], gia: "1500000" }, //Bàn làm việc giám đốc Pula BLV05
+    { ma: "SP0016", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item24.jpg", "item5.jpg", "item6.jpg"], gia: "1500000" }, //Bàn làm việc cao cấp thiết kế tối giản Pula BLV02
+    { ma: "SP0017", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item17.jpg", "item5.jpg", "item6.jpg"], gia: "1500000" },
+    { ma: "SP0018", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item25.jpg", "item5.jpg", "item6.jpg"], gia: "1500000" }, //Bàn làm việc giám đốc hiện đại Pula BLV03
+    { ma: "SP0019", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item26.jpg", "item5.jpg", "item6.jpg"], gia: "1500000" }, //Bàn làm việc Haven
+    { ma: "SP0020", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item20.jpg", "item5.jpg", "item6.jpg"], gia: "1500000" },
+    { ma: "SP0021", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item21.jpg", "item5.jpg", "item6.jpg"], gia: "1500000" }  // Bàn làm việc mặt đá thiết kế hiện đại Pula BLV10
+   
 ];
 
 //paging
 
-let perpage = 6;
+let perpage = 9;
 let currentpage = 1;
 let start = 0;
 let end = perpage;

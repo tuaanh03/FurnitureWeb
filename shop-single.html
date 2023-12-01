@@ -95,15 +95,14 @@
                 <div class="navbar align-self-center d-flex">
                     <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
                         <div class="input-group">
-                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ..." onblur="resetSearch()">
                             <div class="input-group-text">
                                 <i class="fa fa-fw fa-search"></i>
                             </div>
                         </div>
                     </div>
-                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
-                        data-bs-target="#templatemo_search">
-                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                    <a class="nav-icon d-none d-lg-inline" href="#">
+                        <i class="fa fa-fw fa-search text-dark mr-2" onclick="toggleSearch()"></i>
                     </a>
                     <a class="nav-icon position-relative text-decoration-none" onclick="directCart();">
                         <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
@@ -122,95 +121,6 @@
         </div>
     </nav>
     <!-- Close Header -->
-
-    <!-- Modal -->
-    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="w-100 pt-1 mb-5 text-right">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="" method="get" class="modal-content modal-body border-0 p-0">
-                <div class="input-group mb-2">
-                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
-                    <button type="submit" class="input-group-text bg-success text-light">
-                        <i class="fa fa-fw fa-search text-white"></i>
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <div class="modal fade bg-white" id="templatemo_login" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="w-100 pt-1 mb-5 text-right">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="" method="get" class="modal-content modal-body border-0 p-0">
-                <div class="input-group mb-2">
-                    <!-- <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
-                        <button type="submit" class="input-group-text bg-success text-light">
-                            <i class="fa fa-fw fa-search text-white"></i>
-                        </button> -->
-
-                </div>
-                <div class="modal-container">
-                    <header class="modal-header">
-                        Đăng nhập
-                    </header>
-
-                    <div class="modal-body">
-                        <div class="field-group">
-                            <!-- <label for="" class="modal-label">
-                                    <i class="ti-email">
-                                        Tài khoản
-                                    </i>
-                                </label> -->
-                            <input type="text" class="form-control-login" placeholder="Tài khoản...">
-                            <div class="icon">
-                                <i class="fa fa-fw fa-user text-dark mr-3" aria-hidden="true"></i>
-                            </div>
-                        </div>
-
-                        <div class="field-group">
-                            <!-- <label for="" class="modal-label">
-                                    <i class="ti-lock">
-                                    Mật khẩu 
-                                    </i>
-                                </label> -->
-                            <input type="text" class="form-control-login" placeholder="Mật khẩu...">
-                            <div class="icon">
-                                <i class="fa fa-fw fa-lock text-dark mr-3" aria-hidden="true"></i>
-                            </div>
-                        </div>
-
-
-                        <div class="container-button">
-                            <button class="login-button">Đăng nhập</button>
-                        </div>
-
-                        <div class="text-center p-t-12">
-                            <span class="txt1">Quên</span>
-                            <a class="txt2" href="#">Tài khoản / Mật khẩu</a>
-                        </div>
-
-                        <div class="text-center p-t-136">
-                            <a class="txt2" href="LoginForm/index.html">
-                                Tạo tài khoản
-                                <i class="ti-arrow-right"></i>
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-            </form>
-
-        </div>
-    </div>
-
-
-
 
     <!-- Open Content -->
     <section class="bg-light">
@@ -1139,10 +1049,10 @@
     </script>
     <script>
         let quantityItem = localStorage.getItem("TotalQuantity");
-        if (quantityItem == null ) {
+        if (quantityItem == null) {
             quantityItem = 0;
         }
-  
+
         let arrCart = JSON.parse(localStorage.getItem("myCart"));
         console.log(arrCart);
         document.querySelector("#cartNo").innerText = quantityItem;
@@ -1164,11 +1074,11 @@
         document.querySelector("#thumbnail").innerHTML = str;
         document.querySelector("#proName").innerText = objSP.ten;
         document.querySelector("#proPrice").innerText = objSP.gia;
-    
+
         function changeImg(srcImg) {
             document.querySelector("#mainImg").src = srcImg;
         }
-    
+
         function addToCart() {
             var productName = document.querySelector('#proName').innerText;
             var productPrice = document.querySelector('#proPrice').innerText;
@@ -1179,32 +1089,47 @@
                     id: objSP.ma,
                     ten: objSP.ten,
                     gia: objSP.gia,
-                    hinh: [objSP.hinh[0]] 
+                    hinh: [objSP.hinh[0]]
                 },
                 soluong: productQuantity
             };
-    
+
             let arrCart = JSON.parse(localStorage.getItem("myCart")) || [];
-    
+
             let existingItemIndex = arrCart.findIndex(item => item.sp.ten === productName);
-    
+
             if (existingItemIndex !== -1) {
                 arrCart[existingItemIndex].soluong += productQuantity;
             } else {
                 arrCart.push(cartItem);
             }
             localStorage.setItem("myCart", JSON.stringify(arrCart));
-    
+
             totalQuantity += productQuantity;
             localStorage.setItem("TotalQuantity", totalQuantity);
             document.querySelector("#cartNo").innerText = parseInt(totalQuantity);
-    
+
             alert('Product added to cart!');
         }
     </script>
 
 
+    <script>
+        function toggleSearch() {
+            const searchContainer = document.querySelector(".flex-sm-fill");
+            searchContainer.classList.toggle("d-lg-none");
+            const searchIcon = document.querySelector(".nav-icon .fa-search");
+            searchIcon.classList.toggle("d-none");
+        }
 
+        function resetSearch() {
+            const searchContainer = document.querySelector(".flex-sm-fill");
+            searchContainer.classList.add("d-lg-none");
+
+            const searchIcon = document.querySelector(".nav-icon .fa-search");
+            searchIcon.classList.remove("d-none");
+        }
+    </script>
     <!-- End Slider Script -->
 
 </body>
