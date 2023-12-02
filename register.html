@@ -45,14 +45,14 @@
 					
 					
 					<div class="wrap-input100 validate-input" data-validate = "Yêu cầu nhập tài khoản">
-						<input class="input100" type="text" name="username">
+						<input class="input100" type="text" name="username" id="username">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Họ và tên</span>
 					</div>
 					
 					
 					<div class="wrap-input100 validate-input" data-validate="Yêu cầu nhập Email: ex@abc.xyz">
-						<input class="input100" type="text" name="email">
+						<input class="input100" type="text" name="email" id = "email">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Email</span>
 					</div>
@@ -60,7 +60,7 @@
 					
 
 					<div class="wrap-input100 validate-input" data-validate="Yêu cầu số điện thoại">
-						<input class="input100" type="text" name="phone">
+						<input class="input100" type="text" name="phone" id="phone">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Số điện thoại</span>
 					</div>
@@ -93,7 +93,7 @@
 
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" onclick="return checkform();">
+						<button class="login100-form-btn" onclick="register()">
 							Đăng ký
 						</button>
 					</div>
@@ -110,7 +110,7 @@
 						</div>
 
 						<div>
-							<a href="/login.html" class="txt1">
+							<a href="login.html" class="txt1">
 								Đăng nhập ngay
 							</a>
 						</div>
@@ -142,7 +142,7 @@
 				<div class="login100-more" style="background-image: url('images/bg-03.jpg');">
 					<div class="content">
 						<h1 style="padding: 20px;">Vũ Anh Toàn <span>Furniture</span></h1>
-						<a href="/index.html">Khám phá</a>
+						<a href="index.html">Khám phá</a>
 					</div>
 				</div>
 			</div>
@@ -163,21 +163,23 @@
 	<script src="/LoginForm/vendor/countdowntime/countdowntime.js"></script>
 	<script src="/LoginForm/js/main.js"></script>
     
-	<script>
-		function checkform() {
-			var pass = document.getElementById("pass");
-			var pass2 = document.getElementById("pass2");
-			if (pass2.value != "")
-			{
-				if (pass2.value != pass.value)
-				{
-					alert("Mật khẩu không trùng khớp !");
-					pass2.focus();
-					return false;
-				}
-			}
-		}
-	</script>
+<!--	<script>-->
+<!--		function checkform() {-->
+<!--			var pass = document.getElementById("pass");-->
+<!--			var pass2 = document.getElementById("pass2");-->
+<!--			if (pass2.value != "")-->
+<!--			{-->
+<!--				if (pass2.value != pass.value)-->
+<!--				{-->
+<!--					alert("Mật khẩu không trùng khớp !");-->
+<!--					pass2.focus();-->
+<!--					return false;-->
+<!--				}-->
+<!--			}-->
+<!--		}-->
+<!--	</script>-->
+
+
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 
 </body>

@@ -61,7 +61,7 @@
 
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" onclick="auth()">
+						<button class="login100-form-btn" onclick="login()">
 							Đăng nhập
 						</button>
 					</div>
@@ -78,7 +78,7 @@
 						</div>
 
 						<div>
-							<a href="/register.html" class="txt1">
+							<a href="register.html" class="txt1">
 								Đăng ký ngay
 							</a>
 						</div>
@@ -126,37 +126,38 @@
 	<script src="/LoginForm/js/main.js"></script>
 	<script src="/LoginForm/js/logincheck.js"></script>
 
-	<script>
-		function auth() {
-			event.preventDefault();
-			var inputUsername = document.getElementById('username').value;
-			var inputPassword = document.getElementById('password').value;
+<!--	<script>-->
+<!--		function auth() {-->
+<!--			event.preventDefault();-->
+<!--			var inputUsername = document.getElementById('username').value;-->
+<!--			var inputPassword = document.getElementById('password').value;-->
 
-			if (inputUsername === "" && inputPassword === "")
-			{
-				alert("Vui lòng nhập thông tin cần thiết");
-				return;
-			}
+<!--			if (inputUsername === "" && inputPassword === "")-->
+<!--			{-->
+<!--				alert("Vui lòng nhập thông tin cần thiết");-->
+<!--				return;-->
+<!--			}-->
 
-			if (inputUsername === "user123@gmail.com" && inputPassword === "user123") {
-				location.href = "index.html";
-				alert("Đăng nhập thành công");
-				return;
-			}
+<!--			if (inputUsername === "user123@gmail.com" && inputPassword === "user123") {-->
+<!--				location.href = "index.html";-->
+<!--				alert("Đăng nhập thành công");-->
+<!--				return;-->
+<!--			}-->
 
-			if (inputUsername === "admin123@gmail.com" && inputPassword == "admin123")
-			{
-				location.href = "AdminPage/adindex.html";
-				alert("Đăng nhập thành công");
-				return;
-			}
+<!--			if (inputUsername === "admin123@gmail.com" && inputPassword == "admin123")-->
+<!--			{-->
+<!--				location.href = "AdminPage/adindex.html";-->
+<!--				alert("Đăng nhập thành công");-->
+<!--				return;-->
+<!--			}-->
 
-			else {
-				alert("Đăng nhập thất bại");
-				return;
-			}	
-		}
-	</script>
+<!--			else {-->
+<!--				alert("Đăng nhập thất bại");-->
+<!--				return;-->
+<!--			}	-->
+<!--		}-->
+<!--	</script>-->
+
 
 </body>
 
