@@ -107,6 +107,7 @@ function login() {
     }
 }
 function register() {
+    event.preventDefault();
     // Lấy giá trị từ các trường đăng ký
     var username = document.getElementById('username').value;
     var email = document.getElementById('email').value;
@@ -149,7 +150,6 @@ function register() {
             alert('Đăng ký thành công!');
             window.location.href = 'login.html';
             // Reset form sau khi đăng ký thành công (nếu cần)
-            document.getElementById('registerForm').reset();
         } else {
             alert('Email, số điện thoại hoặc tên người dùng đã được sử dụng. Vui lòng chọn thông tin khác.');
         }
@@ -171,5 +171,10 @@ window.onload = function () {
     if (loggedInUser) {
         // Hiển thị tên người dùng
         document.getElementById('userIcon').innerHTML = loggedInUser;
+    }
+    else
+    {
+            // Nếu chưa đăng nhập, ẩn submenu
+            subMenu.style.display = 'none';
     }
 };
