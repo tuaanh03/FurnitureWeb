@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>VAT Furniture Shop </title>
+    <title>Trang chủ </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,10 +14,20 @@
     <link rel="stylesheet" href="assets/css/custom.css">
 
     <!-- Load fonts style after rendering the layout styles -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
     <link rel="stylesheet" href="assets/icon/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="assets/css/modal-login.css">
+    <style>
+        #gender {
+            display: flex;
+        }
+
+        #gender label {
+            margin-right: 130px;
+        }
+    </style>
 </head>
 
 <body>
@@ -27,15 +37,20 @@
         <div class="w-100 d-flex justify-content-between">
             <div>
                 <i class="fa fa-envelope mx-2"></i>
-                <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                <a class="navbar-sm-brand text-light text-decoration-none"
+                   href="mailto:info@company.com">info@company.com</a>
                 <i class="fa fa-phone mx-2"></i>
                 <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
             </div>
             <div>
-                <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
-                <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
-                <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
-                <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i
+                        class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                <a class="text-light" href="https://www.instagram.com/" target="_blank"><i
+                        class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                <a class="text-light" href="https://twitter.com/" target="_blank"><i
+                        class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i
+                        class="fab fa-linkedin fa-sm fa-fw"></i></a>
             </div>
         </div>
     </div>
@@ -47,17 +62,21 @@
 <nav class="navbar navbar-expand-lg navbar-light shadow">
     <div class="container d-flex justify-content-between align-items-center">
 
-        <a class="navbar-brand text-success logo h1 align-self-center" href="index.html" style="text-align: center;">
+        <a class="navbar-brand text-success logo h1 align-self-center" href="index.html"
+           style="text-align: center;">
             <img src="assets/img/vaticon.png" alt="" style="width: 30%">
             <h1 style="font-size: 20px;">Vũ Anh Toàn </h1>
             <!-- VAT -->
         </a>
 
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+        <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
+             id="templatemo_main_nav">
             <div class="flex-fill">
                 <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                     <li class="nav-item">
@@ -77,18 +96,20 @@
             <div class="navbar align-self-center d-flex">
                 <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
                     <div class="input-group">
-                        <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                        <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ..." onblur="resetSearch()">
                         <div class="input-group-text">
                             <i class="fa fa-fw fa-search"></i>
                         </div>
                     </div>
                 </div>
-                <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
-                    <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                <a class="nav-icon d-none d-lg-inline" href="#">
+                    <i class="fa fa-fw fa-search text-dark mr-2 " onclick="toggleSearch()"></i>
                 </a>
                 <a class="nav-icon position-relative text-decoration-none" onclick="directCart();">
                     <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                    <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark" id="cartNo">0</span>
+                    <span
+                            class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"
+                            id="cartNo">0</span>
                 </a>
                 <a class="nav-icon position-relative text-decoration-none" >
                     <i id="userIcon" class="fa fa-fw fa-user text-dark mr-3"></i>
@@ -107,14 +128,28 @@
     </div>
 </nav>
 <!-- Close Header -->
-
 <!-- Start Content -->
-<div id="payment-container">
-    <h1>Thông tin thanh toán</h1>
+<div id="customer-info-container">
+    <h1>Thông tin khách hàng</h1>
 
     <div id="customer-info">
         <label for="fullName">Họ tên:</label>
         <input type="text" id="fullName" name="fullName" required>
+
+        <label>Giới tính:</label>
+        <div id="gender">
+            <input type="radio" id="male" name="gender" value="male" required>
+            <label for="male">Nam</label>
+
+            <input type="radio" id="female" name="gender" value="female" required>
+            <label for="female">Nữ</label>
+
+            <input type="radio" id="other" name="gender" value="other" required>
+            <label for="other">Khác</label>
+        </div>
+
+        <label for="dob">Ngày sinh:</label>
+        <input type="date" id="dob" name="dob" required>
 
         <label for="phone">Số điện thoại:</label>
         <input type="tel" id="phone" name="phone" required>
@@ -126,25 +161,11 @@
         <input type="text" id="address" name="address" required>
     </div>
 
-    <ul id="product-list"></ul>
-
-    <div id="total">Tổng cộng: $0.00</div>
-
-    <div id="payment-methods">
-        <input type="radio" id="cod" name="paymentMethod" value="cod" checked>
-        <label for="cod">Thanh toán khi nhận hàng</label>
-
-        <input type="radio" id="momo" name="paymentMethod" value="momo">
-        <label for="momo">Chuyển qua Momo</label>
-
-        <input type="radio" id="bankTransfer" name="paymentMethod" value="bankTransfer">
-        <label for="bankTransfer">Chuyển khoản ngân hàng</label>
-    </div>
-
-    <button onclick="completePayment()">Hoàn tất thanh toán</button>
+    <button onclick="saveCustomerInfo()">Lưu thông tin</button>
 </div>
-<!-- Close Content -->
 
+
+<!-- Close Content -->
 <!-- Start Footer -->
 <footer class="bg-dark" id="tempaltemo_footer">
     <div class="container">
@@ -201,23 +222,28 @@
             <div class="col-auto me-auto">
                 <ul class="list-inline text-left footer-icons">
                     <li class="list-inline-item border border-light rounded-circle text-center">
-                        <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
+                        <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i
+                                class="fab fa-facebook-f fa-lg fa-fw"></i></a>
                     </li>
                     <li class="list-inline-item border border-light rounded-circle text-center">
-                        <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                        <a class="text-light text-decoration-none" target="_blank"
+                           href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
                     </li>
                     <li class="list-inline-item border border-light rounded-circle text-center">
-                        <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i class="fab fa-twitter fa-lg fa-fw"></i></a>
+                        <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i
+                                class="fab fa-twitter fa-lg fa-fw"></i></a>
                     </li>
                     <li class="list-inline-item border border-light rounded-circle text-center">
-                        <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
+                        <a class="text-light text-decoration-none" target="_blank"
+                           href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
                     </li>
                 </ul>
             </div>
             <div class="col-auto">
                 <label class="sr-only" for="subscribeEmail">Email address</label>
                 <div class="input-group mb-2">
-                    <input type="text" class="form-control bg-dark border-light" id="subscribeEmail" placeholder="Email address">
+                    <input type="text" class="form-control bg-dark border-light" id="subscribeEmail"
+                           placeholder="Email address">
                     <div class="input-group-text btn-success text-light">Subscribe</div>
                 </div>
             </div>
@@ -238,47 +264,51 @@
     </div>
 </footer>
 <!-- End Footer -->
-<!-- Start Script -->
+<script>
+    function loadCustomerInfo() {
+        var username = localStorage.getItem('loggedInUser');
+        if (username) {
+            // Kiểm tra xem đã lưu thông tin khách hàng hay chưa
+            var customerInfoStr = localStorage.getItem(username + '_customerInfo');
+            if (customerInfoStr) {
+                var customerInfo = JSON.parse(customerInfoStr);
+
+                // Hiển thị thông tin khách hàng trên giao diện
+                document.getElementById('fullName').value = customerInfo.fullName;
+                document.querySelector('input[name="gender"][value="' + customerInfo.gender + '"]').checked = true;
+                document.getElementById('dob').value = customerInfo.dob;
+                document.getElementById('phone').value = customerInfo.phone;
+                document.getElementById('email').value = customerInfo.email;
+                document.getElementById('address').value = customerInfo.address;
+            }
+        }
+    }
+
+    function saveCustomerInfo() {
+        var username = localStorage.getItem('loggedInUser');
+        if (!username) {
+            alert('Vui lòng đăng nhập trước khi nhập thông tin.');
+            return;
+        }
+
+        var customerInfo = {
+            fullName: document.getElementById('fullName').value,
+            gender: document.querySelector('input[name="gender"]:checked').value,
+            dob: document.getElementById('dob').value,
+            phone: document.getElementById('phone').value,
+            email: document.getElementById('email').value,
+            address: document.getElementById('address').value
+        };
+
+        // Lưu thông tin khách hàng vào localStorage với key là tên người dùng
+        localStorage.setItem(username + '_customerInfo', JSON.stringify(customerInfo));
+
+        alert('Đã lưu thông tin khách hàng thành công!');
+    }
+
+</script>
 <script src="/LoginForm/js/logincheck.js"></script>
 <script src="/LoginForm/js/main.js"></script>
 <script src="/LoginForm/js/test.js"></script>
-<script>
-    // Lấy thông tin từ Local Storage
-    const storedProducts = localStorage.getItem('selectedProducts');
-
-    // Kiểm tra xem có dữ liệu trong Local Storage không
-    if (storedProducts) {
-        // Chuyển dữ liệu từ chuỗi JSON
-        const selectedProducts = JSON.parse(storedProducts);
-
-        // Hiển thị thông tin trong trang pay.html
-        const productListElement = document.getElementById('product-list');
-        const totalElement = document.getElementById('total');
-
-        // Tính tổng cộng
-        let totalAmount = 0;
-
-        selectedProducts.forEach(product => {
-            // Hiển thị thông tin chi tiết của từng sản phẩm
-            const listItem = document.createElement('li');
-            listItem.textContent = `Tên: ${product.name}, Giá: $${product.price}, Số lượng: ${product.quantity}`;
-            productListElement.appendChild(listItem);
-
-            // Cập nhật tổng cộng
-            totalAmount += parseFloat(product.price) * parseInt(product.quantity);
-        });
-
-        // Hiển thị tổng cộng
-        totalElement.textContent = `Tổng cộng: $${totalAmount.toFixed(2)}`;
-
-        // Clear Local Storage sau khi sử dụng
-        localStorage.removeItem('selectedProducts');
-    } else {
-        // Xử lý khi không có dữ liệu trong Local Storage
-        console.log('Không có sản phẩm được chọn.');
-    }
-
-    function completePayment() {
-        alert('Thanh toán hoàn tất!'); // Thêm xử lý thanh toán tùy ý
-    }
-</script>
+</body>
+</html>
