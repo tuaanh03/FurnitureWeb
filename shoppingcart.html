@@ -345,6 +345,12 @@
     </script>
     <script>
         function redirectToPayPage() {
+            var username = localStorage.getItem('loggedInUser');
+            if (!username) {
+                alert('Vui lòng đăng nhập trước khi mua hàng.');
+                window.location.href = 'login.html';
+                return;
+            }
             // Lấy tất cả các checkbox sản phẩm đã chọn
             const checkboxes = document.querySelectorAll('.product-checkbox:checked');
 

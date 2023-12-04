@@ -18,8 +18,22 @@
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
     <link rel="stylesheet" href="assets/icon/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="assets/css/modal-login.css">
-</head>
+    <style>
+        #gender {
+            display: flex;
+        }
 
+        #gender label {
+            margin-right: 130px;
+        }
+        #add-button {
+            display: block;
+            /* Tự động canh giữa theo chiều ngang */
+            /* Khoảng cách với phần trước đó */
+            margin: 10px auto 0;
+        }
+    </style>
+</head>
 <body>
 <!-- Start Top Nav -->
 <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
@@ -109,12 +123,27 @@
 <!-- Close Header -->
 
 <!-- Start Content -->
-<div id="payment-container">
+<div id="customer-info-container">
     <h1>Thông tin thanh toán</h1>
 
     <div id="customer-info">
         <label for="fullName">Họ tên:</label>
         <input type="text" id="fullName" name="fullName" required>
+
+        <label>Giới tính:</label>
+        <div id="gender">
+            <input type="radio" id="male" name="gender" value="Nam" required>
+            <label for="male">Nam</label>
+
+            <input type="radio" id="female" name="gender" value="Nữ" required>
+            <label for="female">Nữ</label>
+
+            <input type="radio" id="other" name="gender" value="Khác" required>
+            <label for="other">Khác</label>
+        </div>
+
+        <label for="dob">Ngày sinh:</label>
+        <input type="date" id="dob" name="dob" required>
 
         <label for="phone">Số điện thoại:</label>
         <input type="tel" id="phone" name="phone" required>
@@ -122,10 +151,13 @@
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
 
-        <label for="address">Địa chỉ:</label>
-        <input type="text" id="address" name="address" required>
+        <div id="address-container">
+            <!-- Nơi hiển thị danh sách địa chỉ -->
+        </div>
+        <div>
+        <button id ="add-button"onclick="addAddress()">Thêm địa chỉ</button>
+        </div>
     </div>
-
     <ul id="product-list"></ul>
 
     <div id="total">Tổng cộng: $0.00</div>
@@ -143,6 +175,13 @@
 
     <button onclick="completePayment()">Hoàn tất thanh toán</button>
 </div>
+
+    </div>
+
+    <button onclick="saveCustomerInfo()">Lưu thông tin</button>
+</div>
+
+
 <!-- Close Content -->
 
 <!-- Start Footer -->
@@ -243,6 +282,111 @@
 <script src="/LoginForm/js/main.js"></script>
 <script src="/LoginForm/js/test.js"></script>
 <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        loadCustomerInfo();
+    });
+
+    function loadCustomerInfo() {
+        var username = localStorage.getItem('loggedInUser');
+        if (username) {
+            // Kiểm tra xem đã lưu thông tin khách hàng hay chưa
+            var customerInfoStr = localStorage.getItem(username + '_customerInfo');
+            if (customerInfoStr) {
+                var customerInfo = JSON.parse(customerInfoStr);
+
+                // Hiển thị thông tin khách hàng trên giao diện
+                document.getElementById('fullName').value = customerInfo.fullName;
+
+                // Đặt giá trị cho trường giới tính
+                var genderRadios = document.getElementsByName('gender');
+                for (var i = 0; i < genderRadios.length; i++) {
+                    if (genderRadios[i].value === customerInfo.gender) {
+                        genderRadios[i].checked = true;
+                        break;
+                    }
+                }
+
+                document.getElementById('dob').value = customerInfo.dob;
+                document.getElementById('phone').value = customerInfo.phone;
+                document.getElementById('email').value = customerInfo.email;
+
+                // Hiển thị danh sách địa chỉ
+                var addresses = customerInfo.addresses || [];
+                displayAddresses(addresses);
+            }
+        }
+    }
+
+    function saveCustomerInfo() {
+        var username = localStorage.getItem('loggedInUser');
+        if (!username) {
+            alert('Vui lòng đăng nhập trước khi nhập thông tin.');
+            return;
+        }
+
+        var customerInfo = {
+            fullName: document.getElementById('fullName').value,
+            gender: document.querySelector('input[name="gender"]:checked').value,
+            dob: document.getElementById('dob').value,
+            phone: document.getElementById('phone').value,
+            email: document.getElementById('email').value,
+            addresses: getAddresses()
+        };
+
+        // Lưu thông tin khách hàng vào localStorage với key là tên người dùng
+        localStorage.setItem(username + '_customerInfo', JSON.stringify(customerInfo));
+
+        alert('Đã lưu thông tin khách hàng thành công!');
+
+        // Hiển thị lại thông tin sau khi lưu
+        loadCustomerInfo();
+    }
+
+    function getAddresses() {
+        var username = localStorage.getItem('loggedInUser');
+        var addresses = [];
+        var addressInputs = document.getElementsByName('address');
+        for (var i = 0; i < addressInputs.length; i++) {
+            addresses.push(addressInputs[i].value);
+        }
+
+        return addresses;
+    }
+
+    function displayAddresses(addresses) {
+        var addressContainer = document.getElementById('address-container');
+        addressContainer.innerHTML = '';
+
+        addresses.forEach(function (address, index) {
+            var addressElement = document.createElement('div');
+            addressElement.innerHTML = `
+            <label for="address${index}">Địa chỉ ${index + 1}:</label>
+            <input type="text" id="address${index}" name="address" value="${address}" required>
+            <button onclick="deleteAddress(${index})">Xóa</button>
+        `;
+            addressContainer.appendChild(addressElement);
+        });
+    }
+
+    function addAddress() {
+        var addressContainer = document.getElementById('address-container');
+
+        var addressElement = document.createElement('div');
+        var newIndex = addressContainer.children.length + 1;
+        addressElement.innerHTML = `
+        <label for="address${newIndex}">Địa chỉ ${newIndex}:</label>
+        <input type="text" id="address${newIndex}" name="address" required>
+        <button onclick="deleteAddress(${newIndex - 1})">Xóa</button>
+    `;
+        addressContainer.appendChild(addressElement);
+    }
+
+    function deleteAddress(index) {
+        var addressContainer = document.getElementById('address-container');
+        var addressElement = addressContainer.children[index];
+        addressContainer.removeChild(addressElement);
+    }
+
     // Lấy thông tin từ Local Storage
     const storedProducts = localStorage.getItem('selectedProducts');
 
@@ -281,4 +425,8 @@
     function completePayment() {
         alert('Thanh toán hoàn tất!'); // Thêm xử lý thanh toán tùy ý
     }
+
 </script>
+</body>
+
+</html>

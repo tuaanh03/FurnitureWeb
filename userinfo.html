@@ -27,6 +27,12 @@
         #gender label {
             margin-right: 130px;
         }
+        #add-button {
+            display: block;
+            /* Tự động canh giữa theo chiều ngang */
+            /* Khoảng cách với phần trước đó */
+            margin: 10px auto 0;
+        }
     </style>
 </head>
 
@@ -160,8 +166,9 @@
         <div id="address-container">
             <!-- Nơi hiển thị danh sách địa chỉ -->
         </div>
-
-        <button onclick="addAddress()">Thêm địa chỉ</button>
+        <div>
+        <button id ="add-button"onclick="addAddress()">Thêm địa chỉ</button>
+        </div>
     </div>
 
     <button onclick="saveCustomerInfo()">Lưu thông tin</button>
