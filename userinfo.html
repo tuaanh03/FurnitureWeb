@@ -138,13 +138,13 @@
 
         <label>Giới tính:</label>
         <div id="gender">
-            <input type="radio" id="male" name="gender" value="male" required>
+            <input type="radio" id="male" name="gender" value="Nam" required>
             <label for="male">Nam</label>
 
-            <input type="radio" id="female" name="gender" value="female" required>
+            <input type="radio" id="female" name="gender" value="Nữ" required>
             <label for="female">Nữ</label>
 
-            <input type="radio" id="other" name="gender" value="other" required>
+            <input type="radio" id="other" name="gender" value="Khác" required>
             <label for="other">Khác</label>
         </div>
 
@@ -157,13 +157,15 @@
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
 
-        <label for="address">Địa chỉ:</label>
-        <input type="text" id="address" name="address" required>
+        <div id="address-container">
+            <!-- Nơi hiển thị danh sách địa chỉ -->
+        </div>
+
+        <button onclick="addAddress()">Thêm địa chỉ</button>
     </div>
 
     <button onclick="saveCustomerInfo()">Lưu thông tin</button>
 </div>
-
 
 <!-- Close Content -->
 <!-- Start Footer -->
@@ -265,6 +267,10 @@
 </footer>
 <!-- End Footer -->
 <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        loadCustomerInfo();
+    });
+
     function loadCustomerInfo() {
         var username = localStorage.getItem('loggedInUser');
         if (username) {
@@ -275,11 +281,23 @@
 
                 // Hiển thị thông tin khách hàng trên giao diện
                 document.getElementById('fullName').value = customerInfo.fullName;
-                document.querySelector('input[name="gender"][value="' + customerInfo.gender + '"]').checked = true;
+
+                // Đặt giá trị cho trường giới tính
+                var genderRadios = document.getElementsByName('gender');
+                for (var i = 0; i < genderRadios.length; i++) {
+                    if (genderRadios[i].value === customerInfo.gender) {
+                        genderRadios[i].checked = true;
+                        break;
+                    }
+                }
+
                 document.getElementById('dob').value = customerInfo.dob;
                 document.getElementById('phone').value = customerInfo.phone;
                 document.getElementById('email').value = customerInfo.email;
-                document.getElementById('address').value = customerInfo.address;
+
+                // Hiển thị danh sách địa chỉ
+                var addresses = customerInfo.addresses || [];
+                displayAddresses(addresses);
             }
         }
     }
@@ -297,16 +315,66 @@
             dob: document.getElementById('dob').value,
             phone: document.getElementById('phone').value,
             email: document.getElementById('email').value,
-            address: document.getElementById('address').value
+            addresses: getAddresses()
         };
 
         // Lưu thông tin khách hàng vào localStorage với key là tên người dùng
         localStorage.setItem(username + '_customerInfo', JSON.stringify(customerInfo));
 
         alert('Đã lưu thông tin khách hàng thành công!');
+
+        // Hiển thị lại thông tin sau khi lưu
+        loadCustomerInfo();
+    }
+
+    function getAddresses() {
+        var username = localStorage.getItem('loggedInUser');
+        var addresses = [];
+        var addressInputs = document.getElementsByName('address');
+        for (var i = 0; i < addressInputs.length; i++) {
+            addresses.push(addressInputs[i].value);
+        }
+
+        return addresses;
+    }
+
+    function displayAddresses(addresses) {
+        var addressContainer = document.getElementById('address-container');
+        addressContainer.innerHTML = '';
+
+        addresses.forEach(function (address, index) {
+            var addressElement = document.createElement('div');
+            addressElement.innerHTML = `
+            <label for="address${index}">Địa chỉ ${index + 1}:</label>
+            <input type="text" id="address${index}" name="address" value="${address}" required>
+            <button onclick="deleteAddress(${index})">Xóa</button>
+        `;
+            addressContainer.appendChild(addressElement);
+        });
+    }
+
+    function addAddress() {
+        var addressContainer = document.getElementById('address-container');
+
+        var addressElement = document.createElement('div');
+        var newIndex = addressContainer.children.length + 1;
+        addressElement.innerHTML = `
+        <label for="address${newIndex}">Địa chỉ ${newIndex}:</label>
+        <input type="text" id="address${newIndex}" name="address" required>
+        <button onclick="deleteAddress(${newIndex - 1})">Xóa</button>
+    `;
+        addressContainer.appendChild(addressElement);
+    }
+
+    function deleteAddress(index) {
+        var addressContainer = document.getElementById('address-container');
+        var addressElement = addressContainer.children[index];
+        addressContainer.removeChild(addressElement);
     }
 
 </script>
+
+
 <script src="/LoginForm/js/logincheck.js"></script>
 <script src="/LoginForm/js/main.js"></script>
 <script src="/LoginForm/js/test.js"></script>
