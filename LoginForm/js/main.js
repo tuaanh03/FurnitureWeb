@@ -67,7 +67,7 @@
                         }
                     })
                 })
-    })(jQuery);
+    })(jQuery)
     //
     function login() {
         event.preventDefault();

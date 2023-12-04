@@ -94,8 +94,8 @@
                         <i id="userIcon" class="fa fa-fw fa-user text-dark mr-3"></i>
                         <span id="loggedInUserName" class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
                         <ul class="sub-menu" id="subMenu">
-                            <li id="userInfoLink" href="userinfo.html" >Thông tin</li>
-                            <li id="purchaseHistoryLink" href="purchasehistory.html">Lịch sử mua hàng</li>
+                            <li id="userInfoLink" onclick="userinfo()" >Thông tin</li>
+                            <li id="purchaseHistoryLink" onclick="historypurchase()">Lịch sử mua hàng</li>
                             <li id="loginLink" onclick="login()">Đăng nhập</li>
                             <li id="registerLink" onclick="register()">Đăng ký</li>
                             <li id="logoutLink" onclick="logout()">Đăng xuất</li>
@@ -262,7 +262,7 @@
                 document.getElementById("checkout-button").style.display = "block";
                 arrCart.forEach(item => {
                 strData += `<tr>
-                               <td style="padding-left: 40px">
+                               <td>
     <input style="" type="checkbox" class="product-checkbox"
         value="${item.sp.ten}"
         data-product-name="${item.sp.ten}"

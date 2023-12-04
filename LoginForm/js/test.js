@@ -19,3 +19,7 @@ function userinfo()
 {
     location.href="userinfo.html";
 }
+function historypurchase()
+{
+    location.href="historypurchase.html";
+}
