@@ -95,7 +95,8 @@
                 <div class="navbar align-self-center d-flex">
                     <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
                         <div class="input-group">
-                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ..." onblur="resetSearch()">
+                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ..."
+                                onblur="resetSearch()">
                             <div class="input-group-text">
                                 <i class="fa fa-fw fa-search"></i>
                             </div>
@@ -110,11 +111,12 @@
                             class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"
                             id="cartNo">0</span>
                     </a>
-                    <a class="nav-icon position-relative text-decoration-none" >
+                    <a class="nav-icon position-relative text-decoration-none">
                         <i id="userIcon" class="fa fa-fw fa-user text-dark mr-3"></i>
-                        <span id="loggedInUserName" class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                        <span id="loggedInUserName"
+                            class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
                         <ul class="sub-menu" id="subMenu">
-                            <li id="userInfoLink" onclick="userinfo()" >Thông tin</li>
+                            <li id="userInfoLink" onclick="userinfo()">Thông tin</li>
                             <li id="purchaseHistoryLink" onclick="historypurchase()">Lịch sử mua hàng</li>
                             <li id="loginLink" onclick="login()">Đăng nhập</li>
                             <li id="registerLink" onclick="register()">Đăng ký</li>
@@ -175,7 +177,7 @@
                                 <!--/.First slide-->
 
                                 <!--Second slide-->
-                                <div class="carousel-item">
+                                <!-- <div class="carousel-item">
                                     <div class="row">
                                         <div class="col-4">
                                             <a href="#">
@@ -189,13 +191,13 @@
                                                     alt="Product Image 5">
                                             </a>
                                         </div>
-                                        <!-- <div class="col-4">
+                                        <div class="col-4">
                                                 <a href="#">
                                                     <img class="card-img img-fluid" src="assets/img/product_single_06.jpg" alt="Product Image 6">
                                                 </a>
-                                            </div> -->
+                                            </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!--/.Second slide-->
 
                                 <!--Third slide-->
@@ -239,14 +241,14 @@
                         <div class="card-body">
                             <h1 class="h2" id="proName">Bàn ăn mặt kính cao cấp</h1>
                             <p class="h3 py-2" id="proPrice">9.000.000đ</p>
-                            <p class="py-2">
+                            <!-- <p class="py-2">
                                 <i class="fa fa-star text-warning"></i>
                                 <i class="fa fa-star text-warning"></i>
                                 <i class="fa fa-star text-warning"></i>
                                 <i class="fa fa-star text-secondary"></i>
                                 <i class="fa fa-star text-secondary"></i>
                                 <span class="list-inline-item text-dark">Rating 3.8 | 36 Comments</span>
-                            </p>
+                            </p> -->
                             <ul class="list-inline">
                                 <li class="list-inline-item">
                                     <h6>Thương hiệu:</h6>
@@ -1082,7 +1084,7 @@
         }
         document.querySelector("#thumbnail").innerHTML = str;
         document.querySelector("#proName").innerText = objSP.ten;
-        document.querySelector("#proPrice").innerText = objSP.gia;
+        document.querySelector("#proPrice").innerText = vnd(objSP.gia);
 
         function changeImg(srcImg) {
             document.querySelector("#mainImg").src = srcImg;
@@ -1118,6 +1120,17 @@
             document.querySelector("#cartNo").innerText = parseInt(totalQuantity);
 
             alert('Product added to cart!');
+        }
+
+
+        function vnd(price) {
+            if (price == null || isNaN(price)) {
+                return 'Giá không hợp lệ';
+            }
+
+            const formattedPrice = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price);
+
+            return formattedPrice;
         }
     </script>
 
