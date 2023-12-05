@@ -1,26 +1,28 @@
 
 const arrSP = [
-    { ma: "SP0001", ten: "Bàn ăn mặt kính cao cấp", hinh: ["item8.jpg", "item1.jpg"], gia: "9000000", phanloai: "ban" },
+    { ma: "SP0001", ten: "Bàn ăn mặt kính cao cấp", hinh: ["item8.jpg", "item8.1.jpg"], gia: "9000000", phanloai: "ban" },
     { ma: "SP0002", ten: "Bàn inox mạ vàng đá cao cấp", hinh: ["item2.jpg", "item3.jpg"], gia: "9300000", phanloai: "ban" },
-    { ma: "SP0003", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item4.jpg", "item5.jpg", "item6.jpg"], gia: "20000000", phanloai: "ban" },
-    { ma: "SP0004", ten: "Ghế Doris", hinh: ["chair1.png", "item5.jpg", "item6.jpg"], gia: "1500000", phanloai: "ghe" },
-    { ma: "SP0005", ten: "Ghế Nosh", hinh: ["chair3.png", "item5.jpg", "item6.jpg"], gia: "1500000", phanloai: "ghe" },
-    { ma: "SP0006", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["chair4.png", "item5.jpg", "item6.jpg"], gia: "1500000", phanloai: "ban" },
-    { ma: "SP0007", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["chair5.png", "item5.jpg", "item6.jpg"], gia: "1500000", phanloai: "ban" },
-    { ma: "SP0008", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["chair6.png", "item5.jpg", "item6.jpg"], gia: "1500000", phanloai: "ban" },
-    { ma: "SP0010", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item10.jpg", "item5.jpg", "item6.jpg"], gia: "1500000", phanloai: "ban" },
-    { ma: "SP0011", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item11.jpg", "item5.jpg", "item6.jpg"], gia: "1500000", phanloai: "ban" },
-    { ma: "SP0012", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item12.jpg", "item5.jpg", "item6.jpg"], gia: "1500000", phanloai: "ban" },
-    { ma: "SP0013", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item13.jpg", "item5.jpg", "item6.jpg"], gia: "1500000", phanloai: "ban" },
-    { ma: "SP0014", ten: "Bàn giám đốc VIP", hinh: ["item22.jpg", "item5.jpg", "item6.jpg"], gia: "1500000", phanloai: "ban" }, //Bàn làm việc hiện đại chân sắt 2 ngăn kéo Pula BLV08
-    { ma: "SP0015", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item23.jpg", "item5.jpg", "item6.jpg"], gia: "1500000", phanloai: "ban" }, //Bàn làm việc giám đốc Pula BLV05
-    { ma: "SP0016", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item24.jpg", "item5.jpg", "item6.jpg"], gia: "1500000", phanloai: "ban" }, //Bàn làm việc cao cấp thiết kế tối giản Pula BLV02
-    { ma: "SP0017", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item17.jpg", "item5.jpg", "item6.jpg"], gia: "1500000", phanloai: "ban" },
-    { ma: "SP0018", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item25.jpg", "item5.jpg", "item6.jpg"], gia: "1500000", phanloai: "ban" }, //Bàn làm việc giám đốc hiện đại Pula BLV03
-    { ma: "SP0019", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item26.jpg", "item5.jpg", "item6.jpg"], gia: "1500000", phanloai: "ban" }, //Bàn làm việc Haven
-    { ma: "SP0020", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item20.jpg", "item5.jpg", "item6.jpg"], gia: "1500000", phanloai: "ban" },
-    { ma: "SP0021", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item21.jpg", "item5.jpg", "item6.jpg"], gia: "1500000", phanloai: "ban" }  // Bàn làm việc mặt đá thiết kế hiện đại Pula BLV10
-
+    { ma: "SP0003", ten: "Bộ bàn ăn tròn đơn giản", hinh: ["item4.jpg"], gia: "20000000", phanloai: "ban" },
+    { ma: "SP0004", ten: "Ghế Doris", hinh: ["chair1.png"], gia: "1500000", phanloai: "ghe" },
+    { ma: "SP0005", ten: "Ghế Nosh", hinh: ["chair3.png"], gia: "1500000", phanloai: "ghe" },
+    { ma: "SP0006", ten: "Ghế Giraf", hinh: ["chair4.png"], gia: "1500000", phanloai: "ghe" },
+    { ma: "SP0007", ten: "Ghế Bành", hinh: ["chair5.png"], gia: "1500000", phanloai: "ghe" },
+    { ma: "SP0008", ten: "Ghế Bành tạo hình thú", hinh: ["chair6.png", "item5.jpg", "item6.jpg"], gia: "1500000", phanloai: "ban" },
+    { ma: "SP0010", ten: "Bộ bàn ăn mặt đá Ceramic", hinh: ["item10.jpg", "item5.jpg", "item6.jpg"], gia: "25000000", phanloai: "ban" },
+    { ma: "SP0011", ten: "Bàn học chất liệu gỗ sồi cao cấp", hinh: ["item11.jpg"], gia: "5500000", phanloai: "ban" },
+    { ma: "SP0012", ten: "Bàn học gỗ thông có ngăn kéo", hinh: ["item12.jpg"], gia: "6500000", phanloai: "ban" },
+    { ma: "SP0013", ten: "Bàn học gỗ thông", hinh: ["item13.jpg"], gia: "4300000", phanloai: "ban" },
+    { ma: "SP0014", ten: "Bàn giám đốc VIP", hinh: ["item22.jpg", "item22.1.jpg", "item22.2.jpg"], gia: "8500000", phanloai: "ban" }, //Bàn làm việc hiện đại chân sắt 2 ngăn kéo Pula BLV08
+    { ma: "SP0015", ten: "Bàn làm việc giám đốc VAT BLV05", hinh: ["item23.jpg", "item23.1.jpg", "item23.2.jpg"], gia: "19900000", phanloai: "ban" }, //Bàn làm việc giám đốc Pula BLV05
+    { ma: "SP0016", ten: "Bàn làm việc cao cấp VAT BLV02", hinh: ["item24.jpg", "item24.1.jpg", "item24.2.jpg"], gia: "8500000", phanloai: "ban" }, //Bàn làm việc cao cấp thiết kế tối giản Pula BLV02
+    { ma: "SP0017", ten: "Bàn học gỗ thông đơn giản", hinh: ["item17.jpg", "item5.jpg", "item6.jpg"], gia: "1500000", phanloai: "ban" },
+    { ma: "SP0018", ten: "Bàn giám đốc hiện đại VAT BLV03", hinh: ["item25.jpg", "item25.1.jpg", "item25.2.jpg"], gia: "25500000", phanloai: "ban" }, //Bàn làm việc giám đốc hiện đại Pula BLV03
+    { ma: "SP0019", ten: "Bàn làm việc Haven", hinh: ["item26.jpg", "item26.1.jpg", "item26.2.jpg"], gia: "1800000", phanloai: "ban" }, //Bàn làm việc Haven
+    { ma: "SP0020", ten: "Bàn học gỗ thông mini", hinh: ["item20.jpg", "item5.jpg", "item6.jpg"], gia: "1500000", phanloai: "ban" },
+    { ma: "SP0021", ten: "Bàn làm việc mặt đá VAT BLV10", hinh: ["item21.jpg", "item21.1.jpg", "item21.2.jpg"], gia: "8500000", phanloai: "ban" },  // Bàn làm việc mặt đá thiết kế hiện đại Pula BLV10
+    { ma: "SP0022", ten: "Giường ngủ hiện đại VAT PB02", hinh: ["item27.jpg", "item27.1.jpg", "item27.2.jpg"], gia: "9500000", phanloai: "giuongngu" },
+    { ma: "SP0023", ten: "Giường ngủ đẹp đệm da VAT PB10", hinh: ["item28.jpg", "item28.1.jpg", "item28.2.jpg"], gia: "20500000", phanloai: "giuongngu" },
+    { ma: "SP0024", ten: "Đèn cây VAT DC05", hinh: ["item29.1.jpg", "item29.jpg", "item29.2.jpg"], gia: "1150000", phanloai: "denngu" }
 ];
 
 //paging
@@ -426,16 +428,17 @@ function displayPriceRangeCount(minPrice, maxPrice) {
     document.getElementById('categoryCount').innerText = `(${priceRangeCount} sản phẩm)`;
 }
 
-function filterByPrice() {
+document.getElementById('priceRange').addEventListener('change', updatePriceLabel);
+function applyPriceFilter() {
     const priceRange = document.getElementById('priceRange');
     const selectedPrice = document.getElementById('selectedPrice');
     const minPrice = 0; // You can change these values based on your actual price range
     const maxPrice = 100000000;
 
     const selectedValue = parseFloat(priceRange.value);
-    
+
     let filteredArray;
- 
+
     if (selectedValue < 10000000) {
         // If the selected price is below 10 million, display all products under 10 million
         selectedPrice.innerText = 'Dưới 10 triệu VND';
@@ -451,9 +454,8 @@ function filterByPrice() {
     var str = "";
     for (let i = start; i < end && i < filteredArray.length; i++) {
         var obj = JSON.stringify(filteredArray[i]);
-       
-        
-            str += `
+
+        str += `
             <div class="col-md-4">
                 <div class="card mb-4 product-wap rounded-0">
                 <div class="card rounded-0">
@@ -483,13 +485,26 @@ function filterByPrice() {
                 </div>
             </div>
         `;
-        
     }
-   
+
     document.querySelector("#product-list").innerHTML = str;
     console.log(filteredArray);
-   
 }
+
+document.getElementById('filterButton').addEventListener('click', applyPriceFilter);
+
+function updatePriceLabel() {
+    const priceRange = document.getElementById('priceRange');
+    const selectedPrice = document.getElementById('selectedPrice');
+    const selectedValue = parseFloat(priceRange.value);
+
+    if (selectedValue < 10000000) {
+        selectedPrice.innerText = 'Dưới 10 triệu VND';
+    } else {
+        selectedPrice.innerText = formatCurrency(selectedValue) + " - " + formatCurrency(100000000);
+    }
+}
+
 
 function formatCurrency(amount) {
     return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(amount);

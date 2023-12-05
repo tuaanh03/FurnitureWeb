@@ -251,7 +251,6 @@ input[type="tel"],
 input[type="email"] {
     width: 100%;
     padding: 8px;
-    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
@@ -331,3 +330,35 @@ button#add-button:hover {
 }
 
 
+/* Ẩn đi phần viền cho phần phân loại */
+#categoryFilter {
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Thiết lập kiểu của các nút phân loại */
+.phanloai {
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: 10px;
+    background-color: #f5f5f5;
+    color: #333;
+    border: 0px solid #ddd;
+    border-radius: 3px;
+    transition: background-color 0.3s ease; /* Thêm hiệu ứng chuyển động */
+}
+
+/* Hiệu ứng khi hover lên nút phân loại */
+.phanloai:hover {
+    background-color: rgb(128,128,128);
+    color: #fff;
+}
+
+/* Hiệu ứng khi nút phân loại được chọn */
+.phanloai.active {
+    background-color: rgb(128,128,128);
+    color: #fff;
+}

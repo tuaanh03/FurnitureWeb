@@ -133,14 +133,14 @@
         <div class="container py-5">
             <div class="row">
                 <div class="col-lg-3">
-                    <h1 class="h2 pb-4">Phân loại sản phẩm</h1>
+                    <h1 class="h2 pb-4" style="color: #59ab6e;">Phân loại sản phẩm</h1>
                     <ul class="list-unstyled templatemo-accordion">
                         <li class="pb-3">
                             <a class="collapsed d-flex justify-content-between h3 text-decoration-none phanloai"
-                                data-value="all" href="#">Tất cả các sản phẩm</a>
+                                data-value ="all" href="#">Tất cả các sản phẩm</a>
                         </li>
                         <li class="pb-3">
-                            <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+                            <a class="collapsed d-flex justify-content-between h3 text-decoration-none phanloai" data-value="giuongngu" data-value="bantrangdiem" href="#">
                                 Nội thất phòng ngủ
                                 <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
                             </a>
@@ -152,7 +152,7 @@
                             </ul>
                         </li>
                         <li class="pb-3">
-                            <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+                            <a class="collapsed d-flex justify-content-between h3 text-decoration-none phanloai" data-value="ban" data-value="ghe" data-value="tu" href="#">
                                 Nội thất phòng bếp
                                 <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
                             </a>
@@ -163,7 +163,7 @@
                             </ul>
                         </li>
                         <li class="pb-3">
-                            <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+                            <a class="collapsed d-flex justify-content-between h3 text-decoration-none phanloai" data-value="denngu" href="#">
                                 Phụ kiện
                                 <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
                             </a>
@@ -179,12 +179,11 @@
                     </ul>
                     <div class="col-md-12">
                         <div class="mb-4">
-                            <label for="categoryFilter" class="form-label">Chọn loại sản phẩm:</label>
+                            <label for="categoryFilter" class="form-label">Chọn phân loại sản phẩm:</label>
                             <select class="form-select" id="categoryFilter" onchange="filterProducts()">
                                 <option value="all">Tất cả</option>
-                                <option value="ban">Nội thất phòng bếp</option>
-                                <option value="ghe">Nội thất ghế</option>
-                                <!-- Add more options for other categories if needed -->
+                                <option value="all">Giá từ thấp đến cao</option>
+                                <option value="all">Giá từ cao đến thấp</option>                               
                             </select>
                         </div>
                     </div>
@@ -194,7 +193,7 @@
                         <input type="range" class="form-range" id="priceRange" min="0" max="100000000" step="1000000">
                         <span id="selectedPrice" class="d-block mt-2">0 đ - 100,000,000 đ</span>
                     </div>
-                    <button type="button" class="btn btn-primary" onclick="filterByPrice()">Lọc</button>
+                    <button type="button" class="btn btn-primary" id="filterButton" onclick="applyPriceFilter()">Lọc</button>
                 </div>
 
 
