@@ -102,11 +102,17 @@
                             class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"
                             id="cartNo">0</span>
                     </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#" data-bs-toggle="modal"
-                        data-bs-target="#templatemo_login">
-                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                        <span
-                            class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
+                    <a class="nav-icon position-relative text-decoration-none">
+                        <i id="userIcon" class="fa fa-fw fa-user text-dark mr-3"></i>
+                        <span id="loggedInUserName"
+                            class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                        <ul class="sub-menu" id="subMenu">
+                            <li id="userInfoLink" onclick="userinfo()">Thông tin</li>
+                            <li id="purchaseHistoryLink" onclick="historypurchase()">Lịch sử mua hàng</li>
+                            <li id="loginLink" onclick="login()">Đăng nhập</li>
+                            <li id="registerLink" onclick="register()">Đăng ký</li>
+                            <li id="logoutLink" onclick="logout()">Đăng xuất</li>
+                        </ul>
                     </a>
                 </div>
             </div>
@@ -236,6 +242,9 @@
     <!-- End Footer -->
 
     <!-- Start Script -->
+    <script src="/LoginForm/js/logincheck.js"></script>
+    <script src="/LoginForm/js/main.js"></script>
+    <script src="/LoginForm/js/test.js"></script>
     <script src="assets/js/jquery-1.11.0.min.js"></script>
     <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
@@ -245,6 +254,16 @@
     <script>
         let arrCart = JSON.parse(localStorage.getItem("myCart")) || [];
         let quantityItem = localStorage.getItem("TotalQuantity") || 0;
+
+        function vnd(price) {
+            if (price == null || isNaN(price)) {
+                return 'Giá không hợp lệ';
+            }
+
+            const formattedPrice = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price);
+
+            return formattedPrice;
+        }
 
         function updateCart() {
             let strheader = `<tr>
@@ -269,7 +288,7 @@
                 document.getElementById("checkout-button").style.display = "block";
                 arrCart.forEach(item => {
                     strData += `<tr>
-                               <td style="padding-left: 40px">
+                               <td>
     <input style="" type="checkbox" class="product-checkbox"
         value="${item.sp.ten}"
         data-product-name="${item.sp.ten}"
@@ -277,10 +296,10 @@
         data-product-quantity="${item.soluong}">
     ${item.sp.ten}
 </td>
-                                 <td>
+<td>
                                     <img src="./assets/img/itemlist/${item.sp.hinh[0]}" width="50px" height="50px" >
                                 </td>
-                                <td>${item.sp.gia}</td>
+                                <td>${vnd(item.sp.gia)}</td>
                                 <td>
                                     <li class="list-inline-item" style="margin-right: 0;">
                                         <span class="btn btn-success" onclick="decrement(${arrCart.indexOf(item)})">-</span>
@@ -292,7 +311,7 @@
                                         <span class="btn btn-success" onclick="increment(${arrCart.indexOf(item)})">+</span>
                                     </li>
                                 </td>
-                                <td>${item.sp.gia * item.soluong}</td>
+                                <td>${vnd(item.sp.gia * item.soluong)}</td>
                                 <td>
                                     <button onclick="removeItem(${arrCart.indexOf(item)}); alert('Bạn có chắc chắn muốn xóa ?')">Xóa</button>
                                 </td>
@@ -304,7 +323,7 @@
                 document.querySelector("#tblcart").innerHTML = strheader + strData;
                 let strtotal =
                     `
-            <h2>Tổng cộng:  ${tong}<sup>đ</sup></h2>
+            <h2>Tổng cộng:  ${vnd(tong)}</h2>
             `;
 
                 document.querySelector("#totalMoney").innerHTML = strtotal;
@@ -351,6 +370,12 @@
     </script>
     <script>
         function redirectToPayPage() {
+            var username = localStorage.getItem('loggedInUser');
+            if (!username) {
+                alert('Vui lòng đăng nhập trước khi mua hàng.');
+                window.location.href = 'login.html';
+                return;
+            }
             // Lấy tất cả các checkbox sản phẩm đã chọn
             const checkboxes = document.querySelectorAll('.product-checkbox:checked');
 

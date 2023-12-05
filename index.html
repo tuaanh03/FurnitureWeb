@@ -102,12 +102,15 @@
                             class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"
                             id="cartNo">0</span>
                     </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="login.html">
+                    <a class="nav-icon position-relative text-decoration-none" >
                         <i id="userIcon" class="fa fa-fw fa-user text-dark mr-3"></i>
                         <span id="loggedInUserName" class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
                         <ul class="sub-menu" id="subMenu">
-                            <li id="userInfoLink">Thông tin</li>
-                            <li onclick="logout();">Đăng xuất</li>
+                            <li id="userInfoLink" onclick="userinfo()" >Thông tin</li>
+                            <li id="purchaseHistoryLink" onclick="historypurchase()">Lịch sử mua hàng</li>
+                            <li id="loginLink" onclick="login()">Đăng nhập</li>
+                            <li id="registerLink" onclick="register()">Đăng ký</li>
+                            <li id="logoutLink" onclick="logout()">Đăng xuất</li>
                         </ul>
                     </a>
                 </div>
@@ -424,12 +427,15 @@
     <!-- End Footer -->
 
     <!-- Start Script -->
+    <script src="/LoginForm/js/logincheck.js"></script>
     <script src="/LoginForm/js/main.js"></script>
+    <script src="/LoginForm/js/test.js"></script>
     <script src="assets/js/jquery-1.11.0.min.js"></script>
     <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/templatemo.js"></script>
     <script src="assets/js/custom.js"></script>
+
     <script>
         let quantityItem = localStorage.getItem("TotalQuantity");
         if (quantityItem == null) {
@@ -439,14 +445,7 @@
         console.log(arrCart);
         document.querySelector("#cartNo").innerText = quantityItem;
     </script>
-    <script>
-        function directCart() {
-            location.href = "shoppingcart.html";
-        }
-        function directLogin() {
-            location.href = "login.html";
-        }
-    </script>
+
 
     <script>
         function toggleSearch() {
@@ -455,7 +454,7 @@
             const searchIcon = document.querySelector(".nav-icon .fa-search");
             searchIcon.classList.toggle("d-none");
         }
-        
+
         function resetSearch() {
             const searchContainer = document.querySelector(".flex-sm-fill");
             searchContainer.classList.add("d-lg-none");
@@ -479,6 +478,11 @@
 
         // Gọi hàm hiển thị tên người dùng khi trang được load
         displayUserName();
+    </script>
+    <script>
+        function goToUserInfo() {
+            window.location.href = 'userinfo.html';
+        }
     </script>
     <!-- End Script -->
 
