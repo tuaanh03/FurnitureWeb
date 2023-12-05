@@ -1,284 +1,434 @@
-<!DOCTYPE html>
-<html lang="en">
+        <!DOCTYPE html>
+        <html lang="en">
 
-<head>
-    <title>VAT Furniture Shop </title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <head>
+            <title>VAT Furniture Shop </title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="assets/img/vaticon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicone.png">
+            <link rel="apple-touch-icon" href="assets/img/vaticon.png">
+            <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicone.png">
 
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/templatemo.css">
-    <link rel="stylesheet" href="assets/css/custom.css">
+            <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="assets/css/templatemo.css">
+            <link rel="stylesheet" href="assets/css/custom.css">
 
-    <!-- Load fonts style after rendering the layout styles -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
-    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
-    <link rel="stylesheet" href="assets/icon/themify-icons/themify-icons.css">
-    <link rel="stylesheet" href="assets/css/modal-login.css">
-</head>
+            <!-- Load fonts style after rendering the layout styles -->
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+            <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+            <link rel="stylesheet" href="assets/icon/themify-icons/themify-icons.css">
+            <link rel="stylesheet" href="assets/css/modal-login.css">
+            <style>
+                #gender {
+                    display: flex;
+                }
 
-<body>
-<!-- Start Top Nav -->
-<nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
-    <div class="container text-light">
-        <div class="w-100 d-flex justify-content-between">
-            <div>
-                <i class="fa fa-envelope mx-2"></i>
-                <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
-                <i class="fa fa-phone mx-2"></i>
-                <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                #gender label {
+                    margin-right: 130px;
+                }
+                #add-button {
+                    display: block;
+                    /* Tự động canh giữa theo chiều ngang */
+                    /* Khoảng cách với phần trước đó */
+                    margin: 10px auto 0;
+                }
+            </style>
+        </head>
+        <body>
+        <!-- Start Top Nav -->
+        <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+            <div class="container text-light">
+                <div class="w-100 d-flex justify-content-between">
+                    <div>
+                        <i class="fa fa-envelope mx-2"></i>
+                        <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                        <i class="fa fa-phone mx-2"></i>
+                        <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                    </div>
+                    <div>
+                        <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                        <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                        <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                        <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                    </div>
+                </div>
             </div>
-            <div>
-                <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
-                <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
-                <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
-                <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+        </nav>
+        <!-- Close Top Nav -->
+
+
+        <!-- Header -->
+        <nav class="navbar navbar-expand-lg navbar-light shadow">
+            <div class="container d-flex justify-content-between align-items-center">
+
+                <a class="navbar-brand text-success logo h1 align-self-center" href="index.html" style="text-align: center;">
+                    <img src="assets/img/vaticon.png" alt="" style="width: 30%">
+                    <h1 style="font-size: 20px;">Vũ Anh Toàn </h1>
+                    <!-- VAT -->
+                </a>
+
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+                    <div class="flex-fill">
+                        <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Trang chủ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">Về chúng tôi</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="shop.html">Sản phẩm</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Liên hệ</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="navbar align-self-center d-flex">
+                        <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                                <div class="input-group-text">
+                                    <i class="fa fa-fw fa-search"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
+                            <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                        </a>
+                        <a class="nav-icon position-relative text-decoration-none" onclick="directCart();">
+                            <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                            <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark" id="cartNo">0</span>
+                        </a>
+                        <a class="nav-icon position-relative text-decoration-none" >
+                            <i id="userIcon" class="fa fa-fw fa-user text-dark mr-3"></i>
+                            <span id="loggedInUserName" class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                            <ul class="sub-menu" id="subMenu">
+                                <li id="userInfoLink" onclick="userinfo()" >Thông tin</li>
+                                <li id="purchaseHistoryLink" onclick="historypurchase()">Lịch sử mua hàng</li>
+                                <li id="loginLink" onclick="login()">Đăng nhập</li>
+                                <li id="registerLink" onclick="register()">Đăng ký</li>
+                                <li id="logoutLink" onclick="logout()">Đăng xuất</li>
+                            </ul>
+                        </a>
+                    </div>
+                </div>
+
             </div>
+        </nav>
+        <!-- Close Header -->
+
+        <!-- Start Content -->
+        <div id="customer-info-container">
+            <h1>Thông tin thanh toán</h1>
+
+            <div id="customer-info">
+                <label for="fullName">Họ tên:</label>
+                <input type="text" id="fullName" name="fullName" required>
+
+                <label>Giới tính:</label>
+                <div id="gender">
+                    <input type="radio" id="male" name="gender" value="Nam" required>
+                    <label for="male">Nam</label>
+
+                    <input type="radio" id="female" name="gender" value="Nữ" required>
+                    <label for="female">Nữ</label>
+
+                    <input type="radio" id="other" name="gender" value="Khác" required>
+                    <label for="other">Khác</label>
+                </div>
+
+                <label for="dob">Ngày sinh:</label>
+                <input type="date" id="dob" name="dob" required>
+
+                <label for="phone">Số điện thoại:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <div id="address-container">
+                    <!-- Nơi hiển thị danh sách địa chỉ -->
+                </div>
+                <div>
+                <button id ="add-button"onclick="addAddress()">Thêm địa chỉ</button>
+                </div>
+            </div>
+            <ul id="product-list"></ul>
+
+            <div id="total">Tổng cộng: $0.00</div>
+
+            <div id="payment-methods">
+                <input type="radio" id="cod" name="paymentMethod" value="cod" checked>
+                <label for="cod">Thanh toán khi nhận hàng</label>
+
+                <input type="radio" id="momo" name="paymentMethod" value="momo">
+                <label for="momo">Chuyển qua Momo</label>
+
+                <input type="radio" id="bankTransfer" name="paymentMethod" value="bankTransfer">
+                <label for="bankTransfer">Chuyển khoản ngân hàng</label>
+            </div>
+
+            <button onclick="completePayment()">Hoàn tất thanh toán</button>
         </div>
-    </div>
-</nav>
-<!-- Close Top Nav -->
+        <!-- Close Content -->
 
+        <!-- Start Footer -->
+        <footer class="bg-dark" id="tempaltemo_footer">
+            <div class="container">
+                <div class="row">
 
-<!-- Header -->
-<nav class="navbar navbar-expand-lg navbar-light shadow">
-    <div class="container d-flex justify-content-between align-items-center">
+                    <div class="col-md-4 pt-5">
+                        <h2 class="h2 text-success border-bottom pb-3 border-light logo">VAT Shop</h2>
+                        <ul class="list-unstyled text-light footer-link-list">
+                            <li>
+                                <i class="fas fa-map-marker-alt fa-fw"></i>
+                                273 Đ. An Dương Vương, Phường 3, Quận 5, Thành phố Hồ Chí Minh
+                            </li>
+                            <li>
+                                <i class="fa fa-phone fa-fw"></i>
+                                <a class="text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                            </li>
+                            <li>
+                                <i class="fa fa-envelope fa-fw"></i>
+                                <a class="text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                            </li>
+                        </ul>
+                    </div>
 
-        <a class="navbar-brand text-success logo h1 align-self-center" href="index.html" style="text-align: center;">
-            <img src="assets/img/vaticon.png" alt="" style="width: 30%">
-            <h1 style="font-size: 20px;">Vũ Anh Toàn </h1>
-            <!-- VAT -->
-        </a>
+                    <div class="col-md-4 pt-5">
+                        <h2 class="h2 text-light border-bottom pb-3 border-light">Sản phẩm</h2>
+                        <ul class="list-unstyled text-light footer-link-list">
+                            <li><a class="text-decoration-none" href="#">Cao cấp</a></li>
+                            <li><a class="text-decoration-none" href="#">Bộ bàn ghế</a></li>
+                            <li><a class="text-decoration-none" href="#">Giường</a></li>
+                            <li><a class="text-decoration-none" href="#">Poufs</a></li>
+                            <li><a class="text-decoration-none" href="#">Sofas</a></li>
+                            <li><a class="text-decoration-none" href="#">Kệ - tủ sách</a></li>
+                            <li><a class="text-decoration-none" href="#">Phụ kiện khác</a></li>
+                        </ul>
+                    </div>
 
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+                    <div class="col-md-4 pt-5">
+                        <h2 class="h2 text-light border-bottom pb-3 border-light">Thông tin chi tiết</h2>
+                        <ul class="list-unstyled text-light footer-link-list">
+                            <li><a class="text-decoration-none" href="#">Trang chủ</a></li>
+                            <li><a class="text-decoration-none" href="#">Về chúng tôi</a></li>
+                            <li><a class="text-decoration-none" href="#">Địa chỉ cửa hàng</a></li>
+                            <li><a class="text-decoration-none" href="#">FAQs</a></li>
+                            <li><a class="text-decoration-none" href="#">Liên hệ</a></li>
+                        </ul>
+                    </div>
 
-        <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
-            <div class="flex-fill">
-                <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Trang chủ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">Về chúng tôi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="shop.html">Sản phẩm</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Liên hệ</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="navbar align-self-center d-flex">
-                <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
-                        <div class="input-group-text">
-                            <i class="fa fa-fw fa-search"></i>
+                </div>
+
+                <div class="row text-light mb-4">
+                    <div class="col-12 mb-3">
+                        <div class="w-100 my-3 border-top border-light"></div>
+                    </div>
+                    <div class="col-auto me-auto">
+                        <ul class="list-inline text-left footer-icons">
+                            <li class="list-inline-item border border-light rounded-circle text-center">
+                                <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
+                            </li>
+                            <li class="list-inline-item border border-light rounded-circle text-center">
+                                <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                            </li>
+                            <li class="list-inline-item border border-light rounded-circle text-center">
+                                <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i class="fab fa-twitter fa-lg fa-fw"></i></a>
+                            </li>
+                            <li class="list-inline-item border border-light rounded-circle text-center">
+                                <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-auto">
+                        <label class="sr-only" for="subscribeEmail">Email address</label>
+                        <div class="input-group mb-2">
+                            <input type="text" class="form-control bg-dark border-light" id="subscribeEmail" placeholder="Email address">
+                            <div class="input-group-text btn-success text-light">Subscribe</div>
                         </div>
                     </div>
                 </div>
-                <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
-                    <i class="fa fa-fw fa-search text-dark mr-2"></i>
-                </a>
-                <a class="nav-icon position-relative text-decoration-none" onclick="directCart();">
-                    <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                    <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark" id="cartNo">0</span>
-                </a>
-                <a class="nav-icon position-relative text-decoration-none" >
-                    <i id="userIcon" class="fa fa-fw fa-user text-dark mr-3"></i>
-                    <span id="loggedInUserName" class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
-                    <ul class="sub-menu" id="subMenu">
-                        <li id="userInfoLink" href="userinfo.html" >Thông tin</li>
-                        <li id="purchaseHistoryLink" href="purchasehistory.html">Lịch sử mua hàng</li>
-                        <li id="loginLink" onclick="login()">Đăng nhập</li>
-                        <li id="registerLink" onclick="register()">Đăng ký</li>
-                        <li id="logoutLink" onclick="logout()">Đăng xuất</li>
-                    </ul>
-                </a>
-            </div>
-        </div>
-
-    </div>
-</nav>
-<!-- Close Header -->
-
-<!-- Start Content -->
-<div id="payment-container">
-    <h1>Thông tin thanh toán</h1>
-
-    <div id="customer-info">
-        <label for="fullName">Họ tên:</label>
-        <input type="text" id="fullName" name="fullName" required>
-
-        <label for="phone">Số điện thoại:</label>
-        <input type="tel" id="phone" name="phone" required>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="address">Địa chỉ:</label>
-        <input type="text" id="address" name="address" required>
-    </div>
-
-    <ul id="product-list"></ul>
-
-    <div id="total">Tổng cộng: $0.00</div>
-
-    <div id="payment-methods">
-        <input type="radio" id="cod" name="paymentMethod" value="cod" checked>
-        <label for="cod">Thanh toán khi nhận hàng</label>
-
-        <input type="radio" id="momo" name="paymentMethod" value="momo">
-        <label for="momo">Chuyển qua Momo</label>
-
-        <input type="radio" id="bankTransfer" name="paymentMethod" value="bankTransfer">
-        <label for="bankTransfer">Chuyển khoản ngân hàng</label>
-    </div>
-
-    <button onclick="completePayment()">Hoàn tất thanh toán</button>
-</div>
-<!-- Close Content -->
-
-<!-- Start Footer -->
-<footer class="bg-dark" id="tempaltemo_footer">
-    <div class="container">
-        <div class="row">
-
-            <div class="col-md-4 pt-5">
-                <h2 class="h2 text-success border-bottom pb-3 border-light logo">VAT Shop</h2>
-                <ul class="list-unstyled text-light footer-link-list">
-                    <li>
-                        <i class="fas fa-map-marker-alt fa-fw"></i>
-                        273 Đ. An Dương Vương, Phường 3, Quận 5, Thành phố Hồ Chí Minh
-                    </li>
-                    <li>
-                        <i class="fa fa-phone fa-fw"></i>
-                        <a class="text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
-                    </li>
-                    <li>
-                        <i class="fa fa-envelope fa-fw"></i>
-                        <a class="text-decoration-none" href="mailto:info@company.com">info@company.com</a>
-                    </li>
-                </ul>
             </div>
 
-            <div class="col-md-4 pt-5">
-                <h2 class="h2 text-light border-bottom pb-3 border-light">Sản phẩm</h2>
-                <ul class="list-unstyled text-light footer-link-list">
-                    <li><a class="text-decoration-none" href="#">Cao cấp</a></li>
-                    <li><a class="text-decoration-none" href="#">Bộ bàn ghế</a></li>
-                    <li><a class="text-decoration-none" href="#">Giường</a></li>
-                    <li><a class="text-decoration-none" href="#">Poufs</a></li>
-                    <li><a class="text-decoration-none" href="#">Sofas</a></li>
-                    <li><a class="text-decoration-none" href="#">Kệ - tủ sách</a></li>
-                    <li><a class="text-decoration-none" href="#">Phụ kiện khác</a></li>
-                </ul>
-            </div>
-
-            <div class="col-md-4 pt-5">
-                <h2 class="h2 text-light border-bottom pb-3 border-light">Thông tin chi tiết</h2>
-                <ul class="list-unstyled text-light footer-link-list">
-                    <li><a class="text-decoration-none" href="#">Trang chủ</a></li>
-                    <li><a class="text-decoration-none" href="#">Về chúng tôi</a></li>
-                    <li><a class="text-decoration-none" href="#">Địa chỉ cửa hàng</a></li>
-                    <li><a class="text-decoration-none" href="#">FAQs</a></li>
-                    <li><a class="text-decoration-none" href="#">Liên hệ</a></li>
-                </ul>
-            </div>
-
-        </div>
-
-        <div class="row text-light mb-4">
-            <div class="col-12 mb-3">
-                <div class="w-100 my-3 border-top border-light"></div>
-            </div>
-            <div class="col-auto me-auto">
-                <ul class="list-inline text-left footer-icons">
-                    <li class="list-inline-item border border-light rounded-circle text-center">
-                        <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
-                    </li>
-                    <li class="list-inline-item border border-light rounded-circle text-center">
-                        <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
-                    </li>
-                    <li class="list-inline-item border border-light rounded-circle text-center">
-                        <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i class="fab fa-twitter fa-lg fa-fw"></i></a>
-                    </li>
-                    <li class="list-inline-item border border-light rounded-circle text-center">
-                        <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-auto">
-                <label class="sr-only" for="subscribeEmail">Email address</label>
-                <div class="input-group mb-2">
-                    <input type="text" class="form-control bg-dark border-light" id="subscribeEmail" placeholder="Email address">
-                    <div class="input-group-text btn-success text-light">Subscribe</div>
+            <div class="w-100 bg-black py-3">
+                <div class="container">
+                    <div class="row pt-2">
+                        <div class="col-12">
+                            <p class="text-left text-light">
+                                Copyright &copy; 2023 Company Name
+                                | Designed by <a rel="sponsored" href="#" target="_blank">VAT</a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </footer>
+        <!-- End Footer -->
+        <!-- Start Script -->
+        <script src="/LoginForm/js/logincheck.js"></script>
+        <script src="/LoginForm/js/main.js"></script>
+        <script src="/LoginForm/js/test.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                loadCustomerInfo();
+                loadproduct();
+            });
 
-    <div class="w-100 bg-black py-3">
-        <div class="container">
-            <div class="row pt-2">
-                <div class="col-12">
-                    <p class="text-left text-light">
-                        Copyright &copy; 2023 Company Name
-                        | Designed by <a rel="sponsored" href="#" target="_blank">VAT</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-<!-- End Footer -->
-<!-- Start Script -->
-<script src="/LoginForm/js/logincheck.js"></script>
-<script src="/LoginForm/js/main.js"></script>
-<script src="/LoginForm/js/test.js"></script>
-<script>
-    // Lấy thông tin từ Local Storage
-    const storedProducts = localStorage.getItem('selectedProducts');
+            function loadCustomerInfo() {
+                var username = localStorage.getItem('loggedInUser');
+                if (username) {
+                    var customerInfoStr = localStorage.getItem(username + '_customerInfo');
+                    if (customerInfoStr) {
+                        var customerInfo = JSON.parse(customerInfoStr);
 
-    // Kiểm tra xem có dữ liệu trong Local Storage không
-    if (storedProducts) {
-        // Chuyển dữ liệu từ chuỗi JSON
-        const selectedProducts = JSON.parse(storedProducts);
+                        document.getElementById('fullName').value = customerInfo.fullName;
 
-        // Hiển thị thông tin trong trang pay.html
-        const productListElement = document.getElementById('product-list');
-        const totalElement = document.getElementById('total');
+                        var genderRadios = document.getElementsByName('gender');
+                        for (var i = 0; i < genderRadios.length; i++) {
+                            if (genderRadios[i].value === customerInfo.gender) {
+                                genderRadios[i].checked = true;
+                                break;
+                            }
+                        }
 
-        // Tính tổng cộng
-        let totalAmount = 0;
+                        document.getElementById('dob').value = customerInfo.dob;
+                        document.getElementById('phone').value = customerInfo.phone;
+                        document.getElementById('email').value = customerInfo.email;
 
-        selectedProducts.forEach(product => {
-            // Hiển thị thông tin chi tiết của từng sản phẩm
-            const listItem = document.createElement('li');
-            listItem.textContent = `Tên: ${product.name}, Giá: $${product.price}, Số lượng: ${product.quantity}`;
-            productListElement.appendChild(listItem);
+                        var addresses = customerInfo.addresses || [];
+                        displayAddresses(addresses);
+                    }
+                }
+            }
+            function getAddresses() {
+                var addresses = [];
+                var addressInputs = document.getElementsByName('address');
+                addressInputs.forEach(function (addressInput) {
+                    addresses.push(addressInput.value);
+                });
+                return addresses;
+            }
 
-            // Cập nhật tổng cộng
-            totalAmount += parseFloat(product.price) * parseInt(product.quantity);
-        });
+            function displayAddresses(addresses) {
+                var addressContainer = document.getElementById('address-container');
+                addressContainer.innerHTML = '';
 
-        // Hiển thị tổng cộng
-        totalElement.textContent = `Tổng cộng: $${totalAmount.toFixed(2)}`;
+                addresses.forEach(function (address, index) {
+                    var addressElement = document.createElement('div');
+                    addressElement.classList.add('address-item');
+                    addressElement.innerHTML = `
+                <label for="address${index}">Địa chỉ ${index + 1}:</label>
+                <input type="text" id="address${index}" name="address" value="${address}" required>
+                <input type="radio" id="useAddress${index}" name="useAddress" value="${index}">
+                <button onclick="deleteAddress(${index})">Xóa</button>
+            `;
+                    addressContainer.appendChild(addressElement);
+                });
+            }
 
-        // Clear Local Storage sau khi sử dụng
-        localStorage.removeItem('selectedProducts');
-    } else {
-        // Xử lý khi không có dữ liệu trong Local Storage
-        console.log('Không có sản phẩm được chọn.');
-    }
+            function addAddress() {
+                var addressContainer = document.getElementById('address-container');
 
-    function completePayment() {
-        alert('Thanh toán hoàn tất!'); // Thêm xử lý thanh toán tùy ý
-    }
-</script>
+                var addressElement = document.createElement('div');
+                var newIndex = addressContainer.children.length + 1;
+                addressElement.innerHTML = `
+        <label for="address${newIndex}">Địa chỉ ${newIndex}:</label>
+        <input type="text" id="address${newIndex}" name="address" required>
+        <input type="radio" id="useAddress${newIndex}" name="useAddress" value="${newIndex}">
+        <button onclick="deleteAddress(${newIndex - 1})">Xóa</button>
+    `;
+                addressContainer.appendChild(addressElement);
+
+                // Lấy thêm nút radio mới được thêm vào
+                var newRadio = document.getElementById(`useAddress${newIndex}`);
+
+                // Thêm sự kiện change vào nút radio mới
+                newRadio.addEventListener('change', function () {
+                    // Xử lý khi nút radio thay đổi
+                });
+            }
+
+
+            function deleteAddress(index) {
+                var addressContainer = document.getElementById('address-container');
+                var addressElement = addressContainer.children[index];
+                addressContainer.removeChild(addressElement);
+            }
+            function loadproduct() {
+                const storedProducts = localStorage.getItem('selectedProducts');
+
+                if (storedProducts) {
+                    const selectedProducts = JSON.parse(storedProducts);
+                    const productListElement = document.getElementById('product-list');
+                    const totalElement = document.getElementById('total');
+                    let totalAmount = 0;
+
+                    selectedProducts.forEach(product => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `Tên: ${product.name}, Giá: $${product.price}, Số lượng: ${product.quantity}`;
+                        productListElement.appendChild(listItem);
+                        totalAmount += parseFloat(product.price) * parseInt(product.quantity);
+                    });
+
+                    totalElement.textContent = `Tổng cộng: $${totalAmount.toFixed(2)}`;
+                } else {
+                    console.log('Không có sản phẩm được chọn.');
+                }
+            }
+            function completePayment() {
+                const storedProducts = localStorage.getItem('selectedProducts');
+                const selectedAddressIndex = document.querySelector('input[name="useAddress"]:checked')?.value;
+
+                if (!storedProducts) {
+                    console.log('Không có sản phẩm được chọn.');
+                    return;
+                }
+
+                if (selectedAddressIndex === undefined) {
+                    alert('Vui lòng chọn một địa chỉ trước khi thanh toán.');
+                    return;
+                }
+
+                const selectedProducts = JSON.parse(storedProducts);
+                const selectedAddress = getAddresses()[selectedAddressIndex];
+
+                // Sử dụng phương thức map để tạo mảng sản phẩm
+                const productsArray = selectedProducts.map(product => ({
+                    name: product.name,
+                    price: product.price,
+                    quantity: product.quantity
+                }));
+
+                // Tạo đối tượng chứa thông tin thanh toán
+                const paymentInfo = {
+                    products: productsArray,
+                    address: selectedAddress
+                };
+
+                // Lấy mảng các thông tin thanh toán đã lưu trước đó
+                const username = localStorage.getItem('loggedInUser');
+                const previousPayments = JSON.parse(localStorage.getItem(`${username}_paymentInfoArray`)) || [];
+
+                // Thêm thông tin thanh toán mới vào mảng
+                previousPayments.push(paymentInfo);
+
+                // Lưu mảng thông tin thanh toán vào Local Storage
+                localStorage.setItem(`${username}_paymentInfoArray`, JSON.stringify(previousPayments));
+
+                // Xóa thông tin sản phẩm đã chọn
+                localStorage.removeItem('selectedProducts');
+
+                // Hiển thị thông báo thanh toán thành công (bạn có thể thay đổi phần này tùy ý)
+                alert('Thanh toán thành công!');
+            }
+
+        </script>
+        </body>
+
+        </html>

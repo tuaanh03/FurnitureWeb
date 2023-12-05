@@ -97,8 +97,21 @@ button:hover {
     margin: 0;
 }
 .number-page .page-item {
-    display: inline-block;
+        display: inline-block;
 }
+
+/* css thanh lọc */
+/* Add this CSS in your custom.css or directly in the head of your HTML */
+.form-range {
+    width: 100%;
+}
+
+.btn-primary {
+    margin-top: 10px;
+}
+
+/* Adjust styles as needed */
+
 #customer-info-container {
     max-width: 600px;
     margin: 20px auto;
@@ -141,4 +154,180 @@ button {
 button:hover {
     background-color: #45a049;
 }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    max-width: 1000px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.inner {
+    text-align: center;
+}
+
+table#tblcart {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table#tblcart td, table#tblcart th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table#tblcart th {
+    background-color: #f2f2f2;
+}
+
+#totalMoney {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+button#checkout-button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#emptyCardmessage {
+    display: none;
+    text-align: center;
+    padding: 50px;
+    color: #777;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+    .content {
+        padding: 10px;
+    }
+}
+.product-checkbox
+{
+    float: left;
+    margin-top: 6.5px;
+
+}
+.product-checkbox input[type="checkbox"] {
+    transform: scale(2); /* Adjust the scale factor as needed */
+    margin-right: 5px; /* Adjust the spacing between checkbox and text */
+}
+#customer-info-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#customer-info {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="tel"],
+input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#address-container {
+    margin-bottom: 20px;
+}
+
+#address-container div {
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#product-list {
+    list-style: none;
+    padding: 0;
+}
+
+#total {
+    margin-bottom: 20px;
+}
+
+#payment-methods {
+    margin-bottom: 20px;
+    size : 30px;
+}
+
+#payment-methods input,
+#payment-methods label {
+    margin-right: 10px;
+}
+
+#payment-methods label {
+    cursor: pointer;
+}
+button#add-button {
+    margin-top: 10px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button#add-button:hover {
+    background-color: #4caf50;
+}
+
+#address-container {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+.address-item input[type="text"] {
+    margin-right: 10px;
+}
+
+.address-item input[type="radio"] {
+    margin-right: 5px;
+}
+
 

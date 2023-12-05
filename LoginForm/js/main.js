@@ -67,7 +67,7 @@
                         }
                     })
                 })
-    })(jQuery);
+    })(jQuery)
     //
     function login() {
         event.preventDefault();
@@ -84,7 +84,7 @@
             if (username === 'admin123@gmail.com' && password === 'admin123') {
                 alert('Đăng nhập thành công! Chuyển hướng tới trang admin.');
                 // Chuyển hướng đến trang admin.html
-                window.location.href = 'adindex.html';
+                window.location.href = 'adindex.html';             
             } else {
                 // Kiểm tra xem người dùng có tồn tại không
                 var user = userList.find(function (user) {
