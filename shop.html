@@ -95,8 +95,8 @@
                     <div class="navbar align-self-center d-flex">
                         <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
                             <div class="input-group">
-                                <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ..." onblur="resetSearch()">
-                                <div class="input-group-text">
+                                <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                                <div class="input-group-text" id="searchButton">
                                     <i class="fa fa-fw fa-search"></i>
                                 </div>
                             </div>
@@ -122,7 +122,7 @@
         </nav>
         <!-- Close Header -->
 
-        
+
         <!-- Start Content -->
         <div class="container py-5">
             <div class="row">
@@ -130,13 +130,19 @@
                     <h1 class="h2 pb-4">Phân loại sản phẩm</h1>
                     <ul class="list-unstyled templatemo-accordion">
                         <li class="pb-3">
+                            <a class="collapsed d-flex justify-content-between h3 text-decoration-none phanloai"
+                                data-value="all" href="#">Tất cả các sản phẩm</a>
+                        </li>
+                        <li class="pb-3">
                             <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
                                 Nội thất phòng ngủ
                                 <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
                             </a>
                             <ul class="collapse show list-unstyled pl-3">
-                                <li><a class="text-decoration-none" href="#">Giường ngủ</a></li>
-                                <li><a class="text-decoration-none" href="#">Bàn trang điểm</a></li>
+                                <li><a class="text-decoration-none phanloai" data-value="giuongngu" href="#">Giường
+                                        ngủ</a></li>
+                                <li><a class="text-decoration-none phanloai" data-value="bantrangdiem" href="#">Bàn
+                                        trang điểm</a></li>
                             </ul>
                         </li>
                         <li class="pb-3">
@@ -144,10 +150,10 @@
                                 Nội thất phòng bếp
                                 <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
                             </a>
-                            <ul id="collapseTwo" class="collapse list-unstyled pl-3">
-                                <li><a class="text-decoration-none" href="#">Bàn ăn</a></li>
-                                <li><a class="text-decoration-none" href="#">Ghế ăn</a></li>
-                                <li><a class="text-decoration-none" href="#">Tủ bếp</a></li>
+                            <ul class="collapse list-unstyled pl-3">
+                                <li><a class="text-decoration-none phanloai" data-value="ban" href="#">Bàn ăn</a></li>
+                                <li><a class="text-decoration-none phanloai" data-value="ghe" href="#">Ghế ăn</a></li>
+                                <li><a class="text-decoration-none phanloai" data-value="tu" href="#">Tủ bếp</a></li>
                             </ul>
                         </li>
                         <li class="pb-3">
@@ -155,14 +161,37 @@
                                 Phụ kiện
                                 <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
                             </a>
-                            <ul id="collapseThree" class="collapse list-unstyled pl-3">
-                                <li><a class="text-decoration-none" href="#">Đèn ngủ</a></li>
-                                <li><a class="text-decoration-none" href="#">Bàn trang điểm</a></li>
-                                <li><a class="text-decoration-none" href="#">Thảm lót chân</a></li>
+                            <ul class="collapse list-unstyled pl-3">
+                                <li><a class="text-decoration-none phanloai" data-value="denngu" href="#">Đèn ngủ</a>
+                                </li>
+                                <li><a class="text-decoration-none phanloai" data-value="bantrangdiem" href="#">Bàn
+                                        trang điểm</a></li>
+                                <li><a class="text-decoration-none phanloai" data-value="thamlotchan" href="#">Thảm lót
+                                        chân</a></li>
                             </ul>
                         </li>
                     </ul>
+                    <div class="col-md-12">
+                        <div class="mb-4">
+                            <label for="categoryFilter" class="form-label">Chọn loại sản phẩm:</label>
+                            <select class="form-select" id="categoryFilter" onchange="filterProducts()">
+                                <option value="all">Tất cả</option>
+                                <option value="ban">Nội thất phòng bếp</option>
+                                <option value="ghe">Nội thất ghế</option>
+                                <!-- Add more options for other categories if needed -->
+                            </select>
+                        </div>
+                    </div>
+                    <h1 class="h2 pb-4">Lọc theo giá</h1>
+                    <div class="mb-4">
+                        <label for="priceRange" class="form-label">Chọn khoảng giá:</label>
+                        <input type="range" class="form-range" id="priceRange" min="0" max="100000000" step="1000000">
+                        <span id="selectedPrice" class="d-block mt-2">0 đ - 100,000,000 đ</span>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="filterByPrice()">Lọc</button>
                 </div>
+
+
 
                 <div class="col-lg-9">
                     <div class="row">
@@ -177,19 +206,24 @@
                         <li class="list-inline-item">
                             <a class="h3 text-dark text-decoration-none" href="#">Women's</a>
                         </li>
-                    </ul> -->
+                        </ul> -->
                         </div>
                         <div class="col-md-6 pb-4">
-                            <div class="d-flex">
+                            <!-- <div class="d-flex">
                                 <select class="form-control">
                                     <option>Đặc điểm</option>
                                     <option>A đến Z</option>
                                     <option>Sản phẩm</option>
                                 </select>
-                            </div>
+                            </div> -->
                         </div>
+
+                        <p id="categoryCount" class="col-md-6 pb-4"></p>
+
                     </div>
                     <!-- add product div -->
+                    <h3 class="text-danger mt-5 text-center" id="para" style="display: none;">Không tìm thấy sản phẩm
+                        đâu bé ơi !</h3>
                     <div class="row" id="product-list">
 
                     </div>
@@ -453,7 +487,10 @@
         <script src="assets/js/templatemo.js"></script>
         <script src="assets/js/custom.js"></script>
         <script src="assets/js/products.js"></script>
-        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous">
+            </script>
+
         <script>
             function directCart() {
                 location.href = "shoppingcart.html";
@@ -468,18 +505,11 @@
                 searchContainer.classList.toggle("d-lg-none");
                 const searchIcon = document.querySelector(".nav-icon .fa-search");
                 searchIcon.classList.toggle("d-none");
-               
+
             }
-            
-            function resetSearch() {
-                const searchContainer = document.querySelector(".flex-sm-fill");
-                searchContainer.classList.add("d-lg-none");
-    
-                const searchIcon = document.querySelector(".nav-icon .fa-search");
-                searchIcon.classList.remove("d-none");
-                window.location.href = "index.html";
-            }
+
         </script>
+
         <!-- End Script -->
     </div>
 </body>
