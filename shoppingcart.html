@@ -118,7 +118,7 @@
             <div id="totalMoney">
 
             </div>
-            <button id ="checkout-button" onclick="redirectToPayPage()">Thanh toán</button>
+            <button id ="checkout-button" onclick="redirectToPayPage()">Xác nhận thanh toán</button>
 
             <div id="emptyCardmessage" style="display: none;">
                 <p style="text-align: center; padding: 50px;">Không có sản phẩm nào trong giỏ hàng của bạn.</p>
@@ -351,8 +351,15 @@
                 window.location.href = 'login.html';
                 return;
             }
+
             // Lấy tất cả các checkbox sản phẩm đã chọn
             const checkboxes = document.querySelectorAll('.product-checkbox:checked');
+
+            // Kiểm tra xem có sản phẩm nào được chọn không
+            if (checkboxes.length === 0) {
+                alert('Vui lòng chọn ít nhất một sản phẩm để thanh toán.');
+                return;
+            }
 
             // Tạo một mảng để lưu trữ thông tin các sản phẩm đã chọn
             const selectedProducts = [];
@@ -381,6 +388,7 @@
             // Chuyển hướng đến trang pay.html
             window.location.href = 'pay.html';
         }
+
 
     </script>
 
