@@ -264,31 +264,35 @@
 
             // Tạo HTML để hiển thị thông tin thanh toán dưới dạng bảng
             const paymentHistoryHTML = `
-                <div>
-                    <table>
-                        <tr>
-                            <th>Tên sản phẩm</th>
-                            <th>Số lượng</th>
-                            <th>Giá</th>
-                            <th>Địa chỉ</th>
-                        </tr>
-                        ${paymentInfoArray.map(paymentInfo => {
+            <div>
+                <table>
+                    <tr>
+                        <th>Thời gian</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Giá</th>
+                        <th>Địa chỉ</th>
+                    </tr>
+                    ${paymentInfoArray.map(paymentInfo => {
                 const productsHTML = paymentInfo.products.map(product => `
-                                <tr>
-                                    <td>${product.name}</td>
-                                    <td>${product.quantity}</td>
-                                    <td>${product.price}</td>
-                                    <td>${paymentInfo.address}</td>
-                                </tr>
-                            `).join('');
+                        <tr>
+                            <td>${new Date(paymentInfo.timestamp).toLocaleString()}</td>
+                            <td>${product.name}</td>
+                            <td>${product.quantity}</td>
+                            <td>${product.price}</td>
+                            <td>${paymentInfo.address}</td>
+                        </tr>
+                    `).join('');
                 return productsHTML;
             }).join('')}
-                    </table>
-                </div>
-            `;
+                </table>
+            </div>
+        `;
 
             document.getElementById('paymentHistory').innerHTML = paymentHistoryHTML;
         }
     </script>
+
+
     </body>
     </html>
