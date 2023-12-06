@@ -312,7 +312,7 @@
                                 </td>
                                 <td>${vnd(item.sp.gia * item.soluong)}</td>
                                 <td>
-                                    <button onclick="removeItem(${arrCart.indexOf(item)}); alert('Bạn có chắc chắn muốn xóa ?')">Xóa</button>
+                                    <button onclick="removeItem(${arrCart.indexOf(item)}); confirm(('Bạn có chắc chắn muốn xóa ?')">Xóa</button>
                                 </td>
 
                             </tr>`;
@@ -408,6 +408,7 @@
 
             // Lưu thông tin vào Local Storage
             localStorage.setItem('selectedProducts', JSON.stringify(selectedProducts));
+            confirm("Bạn có chắc muốn thanh toán ?");
 
             // Chuyển hướng đến trang pay.html
             window.location.href = 'pay.html';
