@@ -135,7 +135,7 @@
     <!-- Start Content -->
     <h1 id="ddd">Lịch sử mua hàng</h1>
 
-    <div id="paymentHistory"></div>
+    <div id="paymentHistory" style="text-align: center; margin-top: 50px; margin-bottom: 40px;"></div>
 
     <!-- Close Content -->
 
@@ -244,9 +244,26 @@
     <script src="assets/js/templatemo.js"></script>
     <script src="assets/js/custom.js"></script>
 
-
+    <script>
+        let quantityItem = localStorage.getItem("TotalQuantity");
+        if (quantityItem == null) {
+            quantityItem = 0;
+        }
+        let arrCart = JSON.parse(localStorage.getItem("myCart"));
+        console.log(arrCart);
+        document.querySelector("#cartNo").innerText = quantityItem;
+    </script>
 
     <script>
+        function vnd(price) {
+            if (price == null || isNaN(price)) {
+                return 'Giá không hợp lệ';
+            }
+
+            const formattedPrice = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price);
+
+            return formattedPrice;
+        }
         document.addEventListener('DOMContentLoaded', function () {
             displayPaymentHistory();
         });
@@ -279,7 +296,7 @@
                             <td>${new Date(paymentInfo.timestamp).toLocaleString()}</td>
                             <td>${product.name}</td>
                             <td>${product.quantity}</td>
-                            <td>${product.price}</td>
+                            <td>${vnd(product.price * product.quantity)}</td>
                             <td>${paymentInfo.address}</td>
                         </tr>
                     `).join('');

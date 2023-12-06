@@ -131,7 +131,7 @@
             <div id="totalMoney">
 
             </div>
-            <button id ="checkout-button" onclick="redirectToPayPage()">Xác nhận thanh toán</button>
+            <button id="checkout-button" onclick="redirectToPayPage()">Xác nhận thanh toán</button>
             <div id="emptyCardmessage" style="display: none;">
                 <p style="text-align: center; padding: 50px;">Không có sản phẩm nào trong giỏ hàng của bạn.</p>
             </div>
@@ -312,7 +312,7 @@
                                 </td>
                                 <td>${vnd(item.sp.gia * item.soluong)}</td>
                                 <td>
-                                    <button onclick="removeItem(${arrCart.indexOf(item)}); alert('Bạn có chắc chắn muốn xóa ?')">Xóa</button>
+                                    <button onclick="removeItem(${arrCart.indexOf(item)})">Xóa</button>
                                 </td>
 
                             </tr>`;
@@ -354,9 +354,18 @@
         }
 
         function removeItem(index) {
-            quantityItem -= arrCart[index].soluong;
-            arrCart.splice(index, 1);
-            updateCart();
+            // Use a confirm dialog instead of an alert
+            var userConfirmed = confirm('Bạn có chắc chắn muốn xóa ?');
+
+            if (userConfirmed) {
+                // If the user confirms, update the quantity and remove the item
+                quantityItem -= arrCart[index].soluong;
+                arrCart.splice(index, 1);
+                updateCart();
+            } else {
+                // If the user cancels, do nothing
+                return;
+            }
         }
 
         updateCart(); // Call the function to initialize the cart on page load
@@ -415,6 +424,7 @@
 
 
     </script>
+
 
     <!-- End Script -->
 

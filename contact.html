@@ -21,9 +21,8 @@
     <link rel="stylesheet" href="assets/css/modal-login.css">
 
     <!-- Load map styles -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-        crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
 </head>
 
@@ -93,7 +92,8 @@
                 <div class="navbar align-self-center d-flex">
                     <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
                         <div class="input-group">
-                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ..." onblur="resetSearch()">
+                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ..."
+                                onblur="resetSearch()">
                             <div class="input-group-text">
                                 <i class="fa fa-fw fa-search"></i>
                             </div>
@@ -108,11 +108,12 @@
                             class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark "
                             id="cartNo">0</span>
                     </a>
-                    <a class="nav-icon position-relative text-decoration-none" >
+                    <a class="nav-icon position-relative text-decoration-none">
                         <i id="userIcon" class="fa fa-fw fa-user text-dark mr-3"></i>
-                        <span id="loggedInUserName" class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                        <span id="loggedInUserName"
+                            class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
                         <ul class="sub-menu" id="subMenu">
-                            <li id="userInfoLink" onclick="userinfo()" >Thông tin</li>
+                            <li id="userInfoLink" onclick="userinfo()">Thông tin</li>
                             <li id="purchaseHistoryLink" onclick="historypurchase()">Lịch sử mua hàng</li>
                             <li id="loginLink" onclick="login()">Đăng nhập</li>
                             <li id="registerLink" onclick="register()">Đăng ký</li>
@@ -126,45 +127,24 @@
     </nav>
     <!-- Close Header -->
 
-    
+
 
 
     <!-- Start Content Page -->
     <div class="container-fluid bg-light py-5">
         <div class="col-md-6 m-auto text-center">
             <h1 class="h1">Hãy liên hệ chúng tôi</h1>
-            <p>
+            <!-- <p>
                 Proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 Lorem ipsum dolor sit amet.
-            </p>
+            </p> -->
         </div>
     </div>
 
     <!-- Start Map -->
-    <div id="mapid" style="width: 100%; height: 300px;"></div>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin=""></script>
-    <script>
-        var mymap = L.map('mapid').setView([-23.013104, -43.394365, 13], 13);
+    <div id="mapid" style="width: 100%; height: 400px;"></div>
 
-        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-            maxZoom: 18,
-            attribution: 'Zay Telmplte | Template Design by <a href="https://templatemo.com/">Templatemo</a> | Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            id: 'mapbox/streets-v11',
-            tileSize: 512,
-            zoomOffset: -1
-        }).addTo(mymap);
-
-        L.marker([-23.013104, -43.394365, 13]).addTo(mymap)
-            .bindPopup("<b>VAT</b> Furniture Shop<br />Location.").openPopup();
-
-        mymap.scrollWheelZoom.disable();
-        mymap.touchZoom.disable();
-    </script>
-    <!-- Ena Map -->
+    <!-- End Map -->
 
     <!-- Start Contact -->
     <div class="container py-5">
@@ -334,7 +314,7 @@
             const searchIcon = document.querySelector(".nav-icon .fa-search");
             searchIcon.classList.toggle("d-none");
         }
-        
+
         function resetSearch() {
             const searchContainer = document.querySelector(".flex-sm-fill");
             searchContainer.classList.add("d-lg-none");
@@ -342,6 +322,18 @@
             const searchIcon = document.querySelector(".nav-icon .fa-search");
             searchIcon.classList.remove("d-none");
         }
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var mymap = L.map('mapid').setView([10.7598547,106.6808006], 15); // Updated coordinates and zoom level for Ho Chi Minh City
+    
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(mymap);
+    
+            // Update the marker to the new coordinates
+            var marker = L.marker([10.7598547,106.6808006]).addTo(mymap).bindPopup("273 An Dương Vương, Quận 5, Thành phố Hồ Chí Minh");
+        });
     </script>
     <!-- End Script -->
 </body>

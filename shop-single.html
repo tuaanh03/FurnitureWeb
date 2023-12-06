@@ -315,7 +315,7 @@
                                 <div class="row pb-3">
                                     <div class="col d-grid">
                                         <button type="submit" class="btn btn-success btn-lg" name="submit"
-                                            value="buy">Mua</button>
+                                            value="buy" onclick="directBuy();">Mua</button>
                                     </div>
                                     <div class="col d-grid">
                                         <button type="submit" class="btn btn-success btn-lg" name="submit"
@@ -1025,6 +1025,10 @@
             location.href = "login.html";
         }
 
+        function directBuy() {
+            alert("Bạn đã mua hàng thành công");
+        }
+
     </script>
 
     <script>
@@ -1119,7 +1123,7 @@
             localStorage.setItem("TotalQuantity", totalQuantity);
             document.querySelector("#cartNo").innerText = parseInt(totalQuantity);
 
-            alert('Product added to cart!');
+            alert('Bạn đã thêm sản phẩm thành công');
         }
 
 
