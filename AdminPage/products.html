@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VAT Dashboard - Products</title>
+    <title>VAT - Lịch sử mua hàng </title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
@@ -17,6 +17,122 @@
     ></script>
     <script src="./assets/js/init-alpine.js"></script>
   </head>
+  <style>
+    .custom-width-table {
+      width: 100%; /* hoặc bất kỳ giá trị chiều rộng nào khác tùy thuộc vào yêu cầu của bạn */
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      width: 400px;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+    }
+
+    .modal-content {
+      padding: 20px;
+      width: 80%;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+    .modal input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 1px solid #000000; /* Màu đen */
+      border-radius: 4px;
+    }
+
+    /* Thêm chút màu sắc cho nút Sửa thông tin */
+    .bg-blue-500 {
+      background-color: #3498db;
+    }
+
+    .bg-blue-500:hover {
+      background-color: #2980b9;
+    }
+
+    /* Định dạng cho ô select trong modal */
+    .custom-width-table select {
+      width: 100%;
+      padding: 8px; /* Adjust padding as needed */
+      box-sizing: border-box;
+      border: 1px solid #000000;
+      border-radius: 4px;
+      font-size: 14px;
+      /* Center-align using Flexbox */
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Adjust styles for hover and focus if needed */
+    .custom-width-table select:hover,
+    .custom-width-table select:focus {
+      /* Add styles as needed */
+    }
+
+    /* Di chuyển nút Lưu xuống cuối cùng */
+    .modal button {
+      background-color: #3498db;
+      color: #ffffff;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-left: 30px;
+    }
+
+    /* Định dạng khi di chuột qua nút Lưu */
+    .modal button:hover {
+      background-color: #2980b9;
+    }
+    /* Table responsive */
+    .custom-width-table {
+      width: 100%;
+    }
+
+    /* Modal responsive */
+    .modal-content {
+      width: 80%; /* Điều chỉnh chiều rộng của modal */
+    }
+    /* Form responsive */
+    #editForm {
+      max-width: 400px; /* Điều chỉnh chiều rộng của biểu mẫu */
+      margin: 0 auto;
+    }
+    /* Responsive button */
+    .bg-blue-500 {
+      display: block;
+      margin: 10px auto;
+    }
+
+    /* Media Queries cho các kích thước màn hình khác nhau */
+    @media (max-width: 768px) {
+      /* ... */
+      .custom-width-table {
+        width: 100%;
+      }
+
+      .modal-content {
+        width: 90%;
+      }
+    }
+
+  </style>
   <body>
     <div
       class="flex h-screen bg-gray-50 dark:bg-gray-900"
@@ -780,495 +896,127 @@
             </ul>
           </div>
         </header>
+
         <main class="h-full pb-16 overflow-y-auto">
-          <div class="container px-6 mx-auto grid">
-            <div class="w-full overflow-hidden rounded-lg shadow-xs">
-              <div class="w-full overflow-x-auto">
-                <table class="w-full whitespace-no-wrap">
-                  <thead>
-                    <tr
-                      class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
-                    >
-                      <th class="px-4 py-3">Client</th>
-                      <th class="px-4 py-3">Amount</th>
-                      <th class="px-4 py-3">Status</th>
-                      <th class="px-4 py-3">Date</th>
-                    </tr>
-                  </thead>
-                  <tbody
-                    class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
-                  >
-                    <tr class="text-gray-700 dark:text-gray-400">
-                      <td class="px-4 py-3">
-                        <div class="flex items-center text-sm">
-                          <!-- Avatar with inset shadow -->
-                          <div
-                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
-                          >
-                            <img
-                              class="object-cover w-full h-full rounded-full"
-                              src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
-                              alt=""
-                              loading="lazy"
-                            />
-                            <div
-                              class="absolute inset-0 rounded-full shadow-inner"
-                              aria-hidden="true"
-                            ></div>
-                          </div>
-                          <div>
-                            <p class="font-semibold">Hans Burger</p>
-                            <p class="text-xs text-gray-600 dark:text-gray-400">
-                              10x Developer
-                            </p>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        $ 863.45
-                      </td>
-                      <td class="px-4 py-3 text-xs">
-                        <span
-                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
-                        >
-                          Approved
-                        </span>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        6/10/2020
-                      </td>
-                    </tr>
+          <div class="container px-6 mx-auto">
+            <table class="custom-width-table bg-white border border-gray-300">
+              <thead>
+              <tr>
+                <th class="py-2 px-4 border-b text-center">Họ Tên</th>
+                <th class="py-2 px-4 border-b text-center">Tên tài khoản</th>
+                <th class="py-2 px-4 border-b text-center">Phương thức thanh toán</th>
+                <th class="py-2 px-4 border-b text-center">Tổng số tiền đã chi</th>
+                <th class="py-2 px-4 border-b text-center">Tình trạng đơn hàng</th>
+                <th class="py-2 px-4 border-b text-center">Chi tiết</th>
+              </tr>
+              </tr>
+              </thead>
+              <tbody>
+              <!-- Người dùng 1 -->
+              <tr>
+                <td class="py-2 px-4 border-b text-center">Trà Đức Toàn</td>
+                <td class="py-2 px-4 border-b text-center">toantra349</td>
+                <td class="py-2 px-4 border-b text-center">Chuyển khoản</td>
+                <td class="py-2 px-4 border-b text-center">3.000.000 đ</td>
+               <td> <select>
+                  <option></option>
+                  <option>Đã xử lý</option>
+                  <option>Chưa xử lý</option>
+                </select></td>
+                <td><button class ="bg-blue-500 text-white px-4 py-2 rounded">Chi tiết</button></td>
 
-                    <tr class="text-gray-700 dark:text-gray-400">
-                      <td class="px-4 py-3">
-                        <div class="flex items-center text-sm">
-                          <!-- Avatar with inset shadow -->
-                          <div
-                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
-                          >
-                            <img
-                              class="object-cover w-full h-full rounded-full"
-                              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&facepad=3&fit=facearea&s=707b9c33066bf8808c934c8ab394dff6"
-                              alt=""
-                              loading="lazy"
-                            />
-                            <div
-                              class="absolute inset-0 rounded-full shadow-inner"
-                              aria-hidden="true"
-                            ></div>
-                          </div>
-                          <div>
-                            <p class="font-semibold">Jolina Angelie</p>
-                            <p class="text-xs text-gray-600 dark:text-gray-400">
-                              Unemployed
-                            </p>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        $ 369.95
-                      </td>
-                      <td class="px-4 py-3 text-xs">
-                        <span
-                          class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600"
-                        >
-                          Pending
-                        </span>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        6/10/2020
-                      </td>
-                    </tr>
+              </tr>
 
-                    <tr class="text-gray-700 dark:text-gray-400">
-                      <td class="px-4 py-3">
-                        <div class="flex items-center text-sm">
-                          <!-- Avatar with inset shadow -->
-                          <div
-                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
-                          >
-                            <img
-                              class="object-cover w-full h-full rounded-full"
-                              src="https://images.unsplash.com/photo-1551069613-1904dbdcda11?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
-                              alt=""
-                              loading="lazy"
-                            />
-                            <div
-                              class="absolute inset-0 rounded-full shadow-inner"
-                              aria-hidden="true"
-                            ></div>
-                          </div>
-                          <div>
-                            <p class="font-semibold">Sarah Curry</p>
-                            <p class="text-xs text-gray-600 dark:text-gray-400">
-                              Designer
-                            </p>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        $ 86.00
-                      </td>
-                      <td class="px-4 py-3 text-xs">
-                        <span
-                          class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700"
-                        >
-                          Denied
-                        </span>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        6/10/2020
-                      </td>
-                    </tr>
+              <!-- Người dùng 2 -->
+              <tr>
+                <td class="py-2 px-4 border-b text-center">Ngô Tuấn Anh</td>
+                <td class="py-2 px-4 border-b text-center">ngotuananh216</td>
+                <td class="py-2 px-4 border-b text-center">Thanh toán khi nhận hàng</td>
+                <td class="py-2 px-4 border-b text-center">5.000.000 đ</td>
+                <td> <select>
+                  <option></option>
+                  <option>Đã xử lý</option>
+                  <option>Chưa xử lý</option>
+                </select></td>
+                <td><button class ="bg-blue-500 text-white px-4 py-2 rounded">Chi tiết</button></td>
+              </tr>
 
-                    <tr class="text-gray-700 dark:text-gray-400">
-                      <td class="px-4 py-3">
-                        <div class="flex items-center text-sm">
-                          <!-- Avatar with inset shadow -->
-                          <div
-                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
-                          >
-                            <img
-                              class="object-cover w-full h-full rounded-full"
-                              src="https://images.unsplash.com/photo-1551006917-3b4c078c47c9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
-                              alt=""
-                              loading="lazy"
-                            />
-                            <div
-                              class="absolute inset-0 rounded-full shadow-inner"
-                              aria-hidden="true"
-                            ></div>
-                          </div>
-                          <div>
-                            <p class="font-semibold">Rulia Joberts</p>
-                            <p class="text-xs text-gray-600 dark:text-gray-400">
-                              Actress
-                            </p>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        $ 1276.45
-                      </td>
-                      <td class="px-4 py-3 text-xs">
-                        <span
-                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
-                        >
-                          Approved
-                        </span>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        6/10/2020
-                      </td>
-                    </tr>
+              <!-- Người dùng 3 -->
+              <tr>
+                <td class="py-2 px-4 border-b text-center">Hồ Thái Vũ</td>
+                <td class="py-2 px-4 border-b text-center">thaivu2901</td>
+                <td class="py-2 px-4 border-b text-center">Chuyển khoản</td>
+                <td class="py-2 px-4 border-b text-center">8.000.000 đ</td>
+                <td> <select class ="">
+                  <option></option>
+                  <option>Đã xử lý</option>
+                  <option>Chưa xử lý</option>
+                </select></td>
+                <td><button class ="bg-blue-500 text-white px-4 py-2 rounded ">Chi tiết</button></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="function">
+          </div>
+          <div id="editModal" class="modal">
+            <div class="modal-content">
+              <span class="close" onclick="dongModal()">&times;</span>
+              <!-- Các trường biểu mẫu chỉnh sửa ở bên trong thẻ form -->
+              <form id="editForm">
+                <label for="ten">Mã sản phẩm :</label>
+                <input type="text" id="ten" name="ten" value="SP0001">
+                <label for="taikhoan">Tên sản phẩm :</label>
+                <input type="text" id="taikhoan" name="taikhoan" value="ngotuananh216">
+                <label for="sdt">Giá :</label>
+                <input type="text" id="sdt" name="sdt" value="5.000.000 đ">
+                <label for="phanLoai">Phân loại :</label>
+                <input type="text" id="phanLoai" name="phanLoai" value="Bàn">
+              </form>
 
-                    <tr class="text-gray-700 dark:text-gray-400">
-                      <td class="px-4 py-3">
-                        <div class="flex items-center text-sm">
-                          <!-- Avatar with inset shadow -->
-                          <div
-                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
-                          >
-                            <img
-                              class="object-cover w-full h-full rounded-full"
-                              src="https://images.unsplash.com/photo-1546456073-6712f79251bb?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
-                              alt=""
-                              loading="lazy"
-                            />
-                            <div
-                              class="absolute inset-0 rounded-full shadow-inner"
-                              aria-hidden="true"
-                            ></div>
-                          </div>
-                          <div>
-                            <p class="font-semibold">Wenzel Dashington</p>
-                            <p class="text-xs text-gray-600 dark:text-gray-400">
-                              Actor
-                            </p>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        $ 863.45
-                      </td>
-                      <td class="px-4 py-3 text-xs">
-                        <span
-                          class="px-2 py-1 font-semibold leading-tight text-gray-700 bg-gray-100 rounded-full dark:text-gray-100 dark:bg-gray-700"
-                        >
-                          Expired
-                        </span>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        6/10/2020
-                      </td>
-                    </tr>
-
-                    <tr class="text-gray-700 dark:text-gray-400">
-                      <td class="px-4 py-3">
-                        <div class="flex items-center text-sm">
-                          <!-- Avatar with inset shadow -->
-                          <div
-                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
-                          >
-                            <img
-                              class="object-cover w-full h-full rounded-full"
-                              src="https://images.unsplash.com/photo-1502720705749-871143f0e671?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=b8377ca9f985d80264279f277f3a67f5"
-                              alt=""
-                              loading="lazy"
-                            />
-                            <div
-                              class="absolute inset-0 rounded-full shadow-inner"
-                              aria-hidden="true"
-                            ></div>
-                          </div>
-                          <div>
-                            <p class="font-semibold">Dave Li</p>
-                            <p class="text-xs text-gray-600 dark:text-gray-400">
-                              Influencer
-                            </p>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        $ 863.45
-                      </td>
-                      <td class="px-4 py-3 text-xs">
-                        <span
-                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
-                        >
-                          Approved
-                        </span>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        6/10/2020
-                      </td>
-                    </tr>
-
-                    <tr class="text-gray-700 dark:text-gray-400">
-                      <td class="px-4 py-3">
-                        <div class="flex items-center text-sm">
-                          <!-- Avatar with inset shadow -->
-                          <div
-                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
-                          >
-                            <img
-                              class="object-cover w-full h-full rounded-full"
-                              src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
-                              alt=""
-                              loading="lazy"
-                            />
-                            <div
-                              class="absolute inset-0 rounded-full shadow-inner"
-                              aria-hidden="true"
-                            ></div>
-                          </div>
-                          <div>
-                            <p class="font-semibold">Maria Ramovic</p>
-                            <p class="text-xs text-gray-600 dark:text-gray-400">
-                              Runner
-                            </p>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        $ 863.45
-                      </td>
-                      <td class="px-4 py-3 text-xs">
-                        <span
-                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
-                        >
-                          Approved
-                        </span>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        6/10/2020
-                      </td>
-                    </tr>
-
-                    <tr class="text-gray-700 dark:text-gray-400">
-                      <td class="px-4 py-3">
-                        <div class="flex items-center text-sm">
-                          <!-- Avatar with inset shadow -->
-                          <div
-                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
-                          >
-                            <img
-                              class="object-cover w-full h-full rounded-full"
-                              src="https://images.unsplash.com/photo-1566411520896-01e7ca4726af?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
-                              alt=""
-                              loading="lazy"
-                            />
-                            <div
-                              class="absolute inset-0 rounded-full shadow-inner"
-                              aria-hidden="true"
-                            ></div>
-                          </div>
-                          <div>
-                            <p class="font-semibold">Hitney Wouston</p>
-                            <p class="text-xs text-gray-600 dark:text-gray-400">
-                              Singer
-                            </p>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        $ 863.45
-                      </td>
-                      <td class="px-4 py-3 text-xs">
-                        <span
-                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
-                        >
-                          Approved
-                        </span>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        6/10/2020
-                      </td>
-                    </tr>
-
-                    <tr class="text-gray-700 dark:text-gray-400">
-                      <td class="px-4 py-3">
-                        <div class="flex items-center text-sm">
-                          <!-- Avatar with inset shadow -->
-                          <div
-                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
-                          >
-                            <img
-                              class="object-cover w-full h-full rounded-full"
-                              src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
-                              alt=""
-                              loading="lazy"
-                            />
-                            <div
-                              class="absolute inset-0 rounded-full shadow-inner"
-                              aria-hidden="true"
-                            ></div>
-                          </div>
-                          <div>
-                            <p class="font-semibold">Hans Burger</p>
-                            <p class="text-xs text-gray-600 dark:text-gray-400">
-                              10x Developer
-                            </p>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        $ 863.45
-                      </td>
-                      <td class="px-4 py-3 text-xs">
-                        <span
-                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
-                        >
-                          Approved
-                        </span>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        6/10/2020
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div
-                class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800"
-              >
-                <span class="flex items-center col-span-3">
-                  Showing 21-30 of 100
-                </span>
-                <span class="col-span-2"></span>
-                <!-- Pagination -->
-                <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
-                  <nav aria-label="Table navigation">
-                    <ul class="inline-flex items-center">
-                      <li>
-                        <button
-                          class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-purple"
-                          aria-label="Previous"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="w-4 h-4 fill-current"
-                            viewBox="0 0 20 20"
-                          >
-                            <path
-                              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                              clip-rule="evenodd"
-                              fill-rule="evenodd"
-                            ></path>
-                          </svg>
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
-                        >
-                          1
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
-                        >
-                          2
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          class="px-3 py-1 text-white transition-colors duration-150 bg-purple-600 border border-r-0 border-purple-600 rounded-md focus:outline-none focus:shadow-outline-purple"
-                        >
-                          3
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
-                        >
-                          4
-                        </button>
-                      </li>
-                      <li>
-                        <span class="px-3 py-1">...</span>
-                      </li>
-                      <li>
-                        <button
-                          class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
-                        >
-                          8
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
-                        >
-                          9
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple"
-                          aria-label="Next"
-                        >
-                          <svg
-                            class="w-4 h-4 fill-current"
-                            aria-hidden="true"
-                            viewBox="0 0 20 20"
-                          >
-                            <path
-                              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                              clip-rule="evenodd"
-                              fill-rule="evenodd"
-                            ></path>
-                          </svg>
-                        </button>
-                      </li>
-                    </ul>
-                  </nav>
-                </span>
-              </div>
             </div>
           </div>
+
+
         </main>
       </div>
     </div>
+    <script>
+      // Lấy đối tượng modal và các nút
+      var modal = document.getElementById('editModal');
+      var editButtons = document.querySelectorAll('.bg-blue-500');
+
+      // Hàm mở modal
+      function moModal() {
+        modal.style.display = 'block';
+      }
+
+      // Hàm đóng modal
+      function dongModal() {
+        modal.style.display = 'none';
+      }
+
+      // Đóng modal khi người dùng nhấp chuột bên ngoài nó
+      window.onclick = function (event) {
+        if (event.target === modal) {
+          dongModal();
+        }
+      };
+
+      // Lặp qua các nút chỉnh sửa và gắn sự kiện click
+      editButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          moModal();
+          // Bổ sung logic để điền biểu mẫu với dữ liệu có thể được thêm vào ở đây
+        });
+      });
+
+      // Lấy đối tượng biểu mẫu chỉnh sửa
+      var editForm = document.getElementById('editForm');
+      function luu()
+      {
+        confirm("Bạn có chắc muốn lưu không ?");
+      }
+    </script>
   </body>
 </html>
